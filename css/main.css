@@ -5,6 +5,7 @@
     font-family: 'ps-gameday';
     src: url(/font/ps-gameday-regular.otf);
 }
+
 /* CSS Reset */
 
 *,
@@ -15,6 +16,19 @@
     padding: 0;
     border: 0;
 }
+
+/* Add CSS Variable */
+
+:root {
+    --primary-clr: #335F70;
+    --font-clr: white;
+    --font-family: 'ps-gameday', 'Roboto', sans serif;
+    --font-s1: 8rem;
+    --font-s2: 1.5rem;
+
+
+}
+
 
 
 

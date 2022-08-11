@@ -84,3 +84,33 @@ body {
     margin-left: .9rem;
 }
 
+/* styling textbox */
+
+input {
+    display: block;
+    margin-inline: auto;
+    outline: none;
+
+}
+
+.maincontent__userid {
+    padding: 1em 6em;
+    border-radius: 100px;
+    background-color: var(--primary-clr);
+    border: 3px solid white;
+    margin-block: 2rem;
+    color: var(--font-clr);
+    font-family: var(--font-family);
+    font-size: 1.2rem;
+    text-align: center;
+
+}
+
+/* styling placeholder */
+
+input::placeholder {
+    color: var(--font-clr);
+    font-family: var(--font-family);
+    font-size: 1.2rem;
+}
+

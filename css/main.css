@@ -43,3 +43,25 @@ body {
     flex-direction: column;
 
 }
+/* header styling */
+
+.header__icon {
+    position: absolute;
+    margin: .4rem;
+    width: 20px;
+
+}
+
+/* wave img for desktop  */
+
+.header__img,
+.footer__img {
+    width: 100%;
+}
+
+/* wave images for mobile devices  */
+
+.header__img2,
+.footer__img2 {
+    display: none;
+}

@@ -122,3 +122,140 @@ footer {
     /* #2 to make the footer sticky to the bottom */
     margin-top: auto;
 }
+
+/* Add media query  */
+
+@media only screen and (min-width:600px) and (max-width:910px) {
+
+    .maincontent__heading {
+        font-size: 5rem;
+    }
+
+    .maincontent__uppertext {
+        font-size: var(--font-s2);
+        margin-left: .8rem;
+    }
+
+    .maincontent__userid {
+        padding: 1em 5em;
+
+    }
+
+    .maincontent {
+        margin-top: 3rem;
+    }
+
+}
+
+@media only screen and (min-width:400px) and (max-width: 600px) {
+
+    .header__icon {
+        position: absolute;
+        margin: .625rem;
+        width: 30px;
+
+    }
+
+    .maincontent__heading {
+        font-size: 3rem;
+    }
+
+
+    .maincontent__userid {
+        padding: .5em 2em;
+        margin-block: 1.6rem;
+        font-size: 1rem;
+    }
+
+    .maincontent__uppertext {
+        font-size: 1rem;
+        margin-left: .2rem;
+    }
+
+    .maincontent {
+        margin-top: 4rem;
+    }
+
+    input::placeholder {
+        color: var(--font-clr);
+        font-family: var(--font-family);
+        font-size: 1rem;
+    }
+
+    #maincontent__submitbtn {
+        width: 40px;
+        margin-top: 2rem;
+
+    }
+
+    .header__img,
+    .footer__img {
+        display: none;
+    }
+
+    .header__img2 {
+        display: block;
+        width: 100%;
+    }
+
+    .footer__img2 {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:400px) {
+    .header__icon {
+        position: absolute;
+        margin: .5rem;
+        width: 25px;
+
+    }
+
+    .maincontent__heading {
+        font-size: 2rem;
+    }
+
+
+    .maincontent__userid {
+        padding: .2em 1em;
+        margin-block: 1.6rem;
+        font-size: 1rem;
+    }
+
+    .maincontent__uppertext {
+        font-size: 1rem;
+        margin-left: .2rem;
+    }
+
+    .maincontent {
+        margin-top: 6rem;
+    }
+
+    input::placeholder {
+        color: var(--font-clr);
+        font-family: var(--font-family);
+        font-size: .8rem;
+    }
+
+    #maincontent__submitbtn {
+        width: 40px;
+        margin-top: 2rem;
+
+    }
+
+    .header__img,
+    .footer__img {
+        display: none;
+    }
+
+    .header__img2 {
+        display: block;
+        width: 100%;
+    }
+
+    .footer__img2 {
+        display: block;
+        width: 100%;
+    }
+}

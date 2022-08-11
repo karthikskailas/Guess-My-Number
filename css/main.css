@@ -28,7 +28,18 @@
 
 
 }
+body {
+    min-height: 100vh;
+    line-height: 1.1;
+    min-width: fit-content;
+    font-family: var(--font-family);
+    color: var(--font-clr);
+    background-color: var(--primary-clr);
+    overflow-y: hidden;
 
+    /* #1 to make the footer sticky to the bottom */
 
+    display: flex;
+    flex-direction: column;
 
-
+}

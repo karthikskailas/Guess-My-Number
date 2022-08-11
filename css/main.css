@@ -1,0 +1,20 @@
+
+/* Add font family */
+
+@font-face {
+    font-family: 'ps-gameday';
+    src: url(/font/ps-gameday-regular.otf);
+}
+/* CSS Reset */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+

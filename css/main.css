@@ -1,11 +1,16 @@
-/* Add font family */
+
+
+
+/* -------------------- Add font family------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 
 @font-face {
     font-family: 'ps-gameday';
     src: url(/font/ps-gameday-regular.otf);
 }
 
-/* CSS Reset */
+/* --------------------- CSS Reset ------------------------- */
 
 *,
 *::before,
@@ -16,7 +21,7 @@
     border: 0;
 }
 
-/* Add CSS Variable */
+/*--------------------------------- Add CSS Variable -------------------- */
 
 :root {
     --primary-clr: #335F70;
@@ -24,6 +29,8 @@
     --font-family: 'ps-gameday', 'Roboto', sans serif;
     --font-s1: 8rem;
     --font-s2: 1.5rem;
+    --font-family-disbox: 'Ultra', serif;
+    --button-clr: #FF474A;
 
 
 }
@@ -44,7 +51,7 @@ body {
 
 }
 
-/* header styling */
+/*----------------------------- header styling --------------------*/
 
 .header__icon {
     position: absolute;
@@ -53,21 +60,21 @@ body {
 
 }
 
-/* wave img for desktop  */
+/*-------------------------- wave img for desktop----------------------  */
 
 .header__img,
 .footer__img {
     width: 100%;
 }
 
-/* wave images for mobile devices  */
+/*--------------------- wave images for mobile devices ------------------- */
 
 .header__img2,
 .footer__img2 {
     display: none;
 }
 
-/* styling main content */
+/*------------------------styling main content ------------------------- */
 
 .maincontent {
     display: flex;
@@ -86,9 +93,10 @@ body {
     margin-left: .9rem;
 }
 
-/* styling textbox */
+/*----------------------------- styling textbox ----------------------------- */
 
-input {
+.maincontent__userid,
+.maincontent__submitbtn {
     display: block;
     margin-inline: auto;
     outline: none;
@@ -108,7 +116,7 @@ input {
 
 }
 
-/* styling placeholder */
+/*-------------------------------- styling placeholder ---------------------------*/
 
 input::placeholder {
     color: var(--font-clr);
@@ -116,14 +124,20 @@ input::placeholder {
     font-size: 1.2rem;
 }
 
-/* footer section style */
+/*---------------------------------- footer section style ------------------------ */
 
 footer {
     /* #2 to make the footer sticky to the bottom */
     margin-top: auto;
+
 }
 
-/* Add media query  */
+.footer__img,
+.footer__img2 {
+    margin-top: auto;
+}
+
+/*--------------------------------- Add media query --------------------------------  */
 
 @media only screen and (min-width:600px) and (max-width:910px) {
 
@@ -143,6 +157,7 @@ footer {
 
     .maincontent {
         margin-top: 3rem;
+
     }
 
 }
@@ -259,3 +274,37 @@ footer {
         width: 100%;
     }
 }
+
+
+/* _________________________ Main Page Styling ___________________ */
+
+
+/* --------------------------- Styling Main Page Header ----------------- */
+
+.headermainpage {
+    margin-block-start: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.headermainpage__logo {
+    font-size: 4rem;
+    text-align: center;
+    margin-left: 10rem;
+}
+
+.headermainpage__wrapper {
+    display: flex;
+    margin-top: 1.3rem;
+}
+
+.headermainpage__restartbtn {
+    margin-block-end: 1.5rem;
+    width: 2rem;
+}
+
+.headermainpage__menubar-icon {
+    display: none;
+}
+

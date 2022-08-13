@@ -12,7 +12,10 @@
 <body>
     <header class="headermainpage">
         <img src="icon/help-and-restart/restart.svg" alt="" class="headermainpage__restartbtn">
-        <h1 class="headermainpage__logo">GUESS MY NUMBER</h1>
+        <div class="headermainpage__menubar">
+            <img src="icon/buttons/Menu-icon.svg" class="headermainpage__menubar-icon" alt="">
+            <h1 class="headermainpage__logo">GUESS MY NUMBER</h1>
+        </div>
         <div class="headermainpage__wrapper">
             <h2 class="headermainpage__menutext">LEVEL</h2>
             <div class="headermainpage__dropdown">
@@ -25,19 +28,20 @@
         </div>
     </header>
     <section class="mainpage">
-                <div class="mainpage__textwrapper">
-                    <div class="mainpage__displaywrapper">
-                        <button class="mainpage__displaybox">?</button>
-                        <h2 class="mainpage__text" id="mainpage__txt">START GUESSING</h2>
-                    </div>
-                    <div class="mainpage__inputwrapper">
-                        <input class="mainpage__input" id="mainpage__inp" type="text">
-                        <button class="mainpage__button" id="mainpage__btn">CHECK</button>
-                    </div>
-        
+        <div class="mainpage__textwrapper">
+            <div class="mainpage__displaywrapper">
+                <div class="mainpage__displaybox"><span class="mainpage__displaybox-content">?</span>
                 </div>
-            </section>
-    
+                <h2 class="mainpage__text" id="mainpage__txt">START GUESSING</h2>
+            </div>
+            <div class="mainpage__inputwrapper">
+                <input class="mainpage__input" id="mainpage__inp" required type="number">
+                <button class="mainpage__button --active" id="mainpage__btn">CHECK</button>
+            </div>
+
+        </div>
+    </section>
+
     <footer>
         <img src="img/Welcome-Page/waves/Wave-Down.svg" alt="wave" class="footer__img">
         <img src="img/Welcome-Page/waves/Wave-Down-Mob.svg" alt="wave" class="footer__img2">

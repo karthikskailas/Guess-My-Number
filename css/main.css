@@ -330,3 +330,12 @@ footer {
 
 /* _________________________header section styled________________________*/
 
+/* ______________________________Styling MainPage Content_______________________ */
+
+.mainpage {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+}
+

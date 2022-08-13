@@ -339,3 +339,72 @@ footer {
 
 }
 
+/* ------------------------- styling display box ------------------- */
+
+
+
+
+.mainpage__displaybox {
+    font-family: var(--font-family-disbox);
+    color: var(--primary-clr);
+    display: block;
+    margin-inline: 3.5rem;
+    background-color: white;
+    padding: 43px 15px;
+    border-radius: 15px;
+    font-size: 6rem;
+    text-align: center;
+    max-width: 313px;
+    max-height: 191px;
+}
+
+/* ---------------- styling text,input and button ---------------------*/
+
+.mainpage__text {
+    text-align: center;
+    margin-block: 1.5rem;
+}
+
+.mainpage__input,
+.mainpage__button {
+    display: block;
+    margin-inline: auto;
+
+}
+
+.mainpage__input {
+    padding: 0.5em;
+    padding-top: 45px;
+    width: 440px;
+    height: 81px;
+    background-color: var(--primary-clr);
+    border: 3px solid white;
+    border-radius: 10px;
+    font-size: 4rem;
+    outline: none;
+    text-align: center;
+    color: white;
+    font-family: var(--font-family);
+    margin-bottom: 1.9rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.mainpage__button {
+    padding: 1em 3.5em;
+    font-family: var(--font-family);
+    color: white;
+    background-color: var(--button-clr);
+    font-size: 1.1rem;
+    border-radius: 10px;
+    letter-spacing: 2px;
+
+
+}
+
+/* ------------------------- styled MainPage Content ------------------- */
+

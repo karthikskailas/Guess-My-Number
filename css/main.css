@@ -308,3 +308,25 @@ footer {
     display: none;
 }
 
+/* ----------------------- Styling DropDownMenu -----------------------------------  */
+
+.headermainpage__menutext {
+    margin-top: .4rem;
+    font-size: 1.563rem;
+}
+
+.headermainpage__dropmenu {
+    margin-inline: 1rem;
+    padding: .2em 1em;
+    text-align: center;
+    font-family: var(--font-family);
+    background-color: var(--primary-clr);
+    border: 2px solid white;
+    border-radius: 7px;
+    color: white;
+    font-size: 1.25rem;
+    outline: none;
+}
+
+/* _________________________header section styled________________________*/
+

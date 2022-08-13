@@ -408,3 +408,215 @@ input::-webkit-inner-spin-button {
 
 /* ------------------------- styled MainPage Content ------------------- */
 
+/* _______________________________ Media query ______________________________ */
+
+@media only screen and (min-width:675px) and (max-width:910px) {
+
+    .headermainpage {
+        margin-block-start: 1.5rem;
+        display: flex;
+        justify-content: space-center;
+
+    }
+
+    .headermainpage__logo {
+        font-size: 3rem;
+        text-align: center;
+        margin-left: 4rem;
+    }
+
+    .headermainpage__wrapper {
+        display: flex;
+        margin-top: .75rem;
+    }
+
+    .headermainpage__restartbtn {
+        margin-left: 1.5rem;
+    }
+
+    .headermainpage__dropmenu {
+        margin-inline: 0rem;
+        margin-left: .625rem;
+        padding: 0.2em 0em;
+        text-align: center;
+        font-family: var(--font-family);
+        background-color: var(--primary-clr);
+        border: 2px solid white;
+        border-radius: 7px;
+        color: white;
+        font-size: 1rem;
+        outline: none;
+    }
+
+    .headermainpage__menutext {
+        margin-top: .4rem;
+        font-size: 1rem;
+    }
+
+
+
+}
+
+@media only screen and (min-width: 502px)and (max-width: 675px) {
+
+    .headermainpage__wrapper,
+    .headermainpage__restartbtn {
+        display: none;
+
+    }
+
+    .headermainpage {
+        margin-block-start: 1.5rem;
+        display: flex;
+        justify-content: center;
+        gap: px;
+
+    }
+
+    .headermainpage__logo {
+        font-size: 3rem;
+        text-align: center;
+        margin-left: 0rem;
+    }
+
+    .mainpage__input {
+        padding-top: 1.688rem;
+        width: 21.563rem;
+        height: 0;
+        background-color: var(--primary-clr);
+        border: 3px solid white;
+        border-radius: 10px;
+        font-size: 3rem;
+        outline: none;
+        text-align: center;
+        color: white;
+        font-family: var(--font-family);
+        margin-bottom: 1.9rem;
+    }
+
+
+
+    .mainpage__button {
+        padding: .75em 2em;
+        font-family: var(--font-family);
+        color: white;
+        background-color: var(--button-clr);
+        font-size: 1.1rem;
+        border-radius: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+
+
+    }
+
+    .mainpage__displaybox {
+        font-family: var(--font-family-disbox);
+        color: var(--primary-clr);
+        display: block;
+        margin-inline: auto;
+        background-color: white;
+        padding: 43px 15px;
+        border-radius: 15px;
+        font-size: 6rem;
+        text-align: center;
+        max-width: 266px;
+        max-height: 185px;
+    }
+
+    .headermainpage__menubar-icon {
+        display: block;
+        margin-inline: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .headermainpage__menubar {
+        display: flex;
+        margin-right: 4rem;
+
+    }
+
+
+}
+
+@media only screen and (max-width:502px) {
+    .mainpage {
+        margin-top: 4rem;
+    }
+
+    .headermainpage__wrapper,
+    .headermainpage__restartbtn {
+        display: none;
+
+    }
+
+    .headermainpage {
+        margin-block-start: 1.5rem;
+        display: flex;
+        justify-content: center;
+
+
+    }
+
+    .headermainpage__logo {
+        font-size: 2rem;
+        text-align: center;
+        margin-left: 0rem;
+        margin-top: .625rem;
+    }
+
+    .mainpage__input {
+        padding-top: 1.688rem;
+        width: 18.563rem;
+        height: 0;
+        background-color: var(--primary-clr);
+        border: 3px solid white;
+        border-radius: 10px;
+        font-size: 3rem;
+        outline: none;
+        text-align: center;
+        color: white;
+        font-family: var(--font-family);
+        margin-bottom: 1.9rem;
+    }
+
+
+
+    .mainpage__button {
+        padding: .75em 2em;
+        font-family: var(--font-family);
+        color: white;
+        background-color: var(--button-clr);
+        font-size: 1.1rem;
+        border-radius: 10px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+
+
+    }
+
+    .mainpage__displaybox {
+        font-family: var(--font-family-disbox);
+        color: var(--primary-clr);
+        display: block;
+        margin-inline: auto;
+        background-color: white;
+        padding: 36px 30px;
+        border-radius: 15px;
+        font-size: 6rem;
+        text-align: center;
+        max-width: 257px;
+        max-height: 180px;
+    }
+
+    .headermainpage__menubar-icon {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .headermainpage__menubar {
+        display: flex;
+        margin-right: 2rem;
+
+    }
+}

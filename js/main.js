@@ -1,10 +1,13 @@
 let userId;
+let option ;
 const mainContentForm = document.querySelector("#maincontent__form"); // Selecting form from maincontent
 const userInput = document.querySelector("#userId"); // Selecting input inside the form
 const mainPageDisplayBox = document.querySelector(
 	"#mainpage__displaybox-content"
 );
 const mainPageInputBox = document.querySelector("#mainpage__inp");
+const mainPageForm = document.querySelector("#mainpage__input-form");
+const mainPageTxt = document.querySelector("#mainpage__txt");
 
 /* ---------- Set Data and Get data to session Storage --------- */
 
@@ -16,12 +19,10 @@ const getSessionStorage = () => {
 };
 
 const textAdd = () => {
-	const mainPageTxt = document.querySelector("#mainpage__txt");
-
 	if (mainPageTxt) {
 		mainPageTxt.innerText = `Welcome, ${userId}`;
 		setTimeout(() => {
-			mainPageTxt.innerText = `start guessing`;
+			mainPageTxt.innerText = `start guessing...`;
 		}, 1500);
 	}
 };
@@ -52,3 +53,6 @@ mainPageInputBox.addEventListener("input", () => {
 		mainPageDisplayBox.innerText = mainPageInputBox.value;
 	}
 });
+
+
+

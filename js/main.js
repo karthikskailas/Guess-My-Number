@@ -1,5 +1,5 @@
 let userId;
-let option ;
+let option;
 const mainContentForm = document.querySelector("#maincontent__form"); // Selecting form from maincontent
 const userInput = document.querySelector("#userId"); // Selecting input inside the form
 const mainPageDisplayBox = document.querySelector(
@@ -54,5 +54,73 @@ mainPageInputBox.addEventListener("input", () => {
 	}
 });
 
+/* -------------------- Mode ------------------- */
 
+let dropDown = document.querySelector("#headermainpage__dropmenu-select");
 
+/* --------------------------- Easy ------------------------------ */
+
+const randomNumEasy = Math.floor(Math.random() * 20) + 1;
+console.log(randomNumEasy);
+const easyMode = () => {
+	let guessNum = mainPageInputBox.value;
+	if (parseInt(guessNum) === randomNumEasy) {
+		console.log(`monusa kandupidichatta22`);
+	} else if (parseInt(guessNum) > randomNumEasy) {
+		mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
+	} else {
+		mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
+	}
+	mainPageInputBox.value = "";
+};
+/* --------------------------- Medium ------------------------------ */
+const randomNumMedium = Math.floor(Math.random() * 50) + 1;
+console.log(randomNumMedium);
+const mediumMode = () => {
+	let guessNum = mainPageInputBox.value;
+	if (parseInt(guessNum) > randomNumMedium) {
+		mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
+	} else if (parseInt(guessNum) === randomNumMedium) {
+		console.log(`monusa kandupidichatta11`);
+	} else {
+		mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
+	}
+	mainPageInputBox.value = "";
+};
+/* --------------------------- Hard ------------------------------ */
+const randomNumHard = Math.floor(Math.random() * 100) + 1;
+console.log(randomNumHard);
+const hardMode = () => {
+	let guessNum = mainPageInputBox.value;
+	if (parseInt(guessNum) > randomNumHard) {
+		mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
+	} else if (parseInt(guessNum) === randomNumHard) {
+		console.log(`monusa kandupidichatta22`);
+	} else {
+		mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
+	}
+	mainPageInputBox.value = "";
+};
+
+dropDown.addEventListener("change", () => {
+	option = dropDown.options[dropDown.selectedIndex].value;
+	console.log(option);
+
+	if (parseInt(option) === 1) {
+		mainPageForm.addEventListener("submit", (e) => {
+			e.preventDefault();
+			easyMode();
+		});
+	} else if (parseInt(option) === 2) {
+		mainPageForm.addEventListener("submit", (e) => {
+			e.preventDefault();
+			mediumMode();
+		});
+	} else {
+		mainPageForm.addEventListener("submit", (e) => {
+			e.preventDefault();
+			hardMode();
+		});
+	}
+});
+// }

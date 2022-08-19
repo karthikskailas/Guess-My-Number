@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess My Number | Can You Guess it..</title>
-    <link rel="stylesheet" href="css/main.css">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Guess My Number | Can You Guess it..</title>
+        <link rel="stylesheet" href="css/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,10 +20,11 @@
         <div class="headermainpage__wrapper">
             <h2 class="headermainpage__menutext">LEVEL</h2>
             <div class="headermainpage__dropdown">
-                <select id="headermainpage__dropmenu-select" class="headermainpage__dropmenu" name="cars">
-                    <option selected value="EASY">EASY</option>
-                    <option value="MEDIUM">MEDIUM</option>
-                    <option value="HARD">HARD</option>
+                <form id="mainpage__input-form">
+                <select id="headermainpage__dropmenu-select" class="headermainpage__dropmenu" name="cars" >
+                    <option selected="selected" hidden value="1">EASY</option>
+                    <option value="2"> coming soon </option>
+                
                 </select>
             </div>
         </div>
@@ -30,13 +32,12 @@
     <section class="mainpage">
         <div class="mainpage__textwrapper">
             <div class="mainpage__displaywrapper">
-                <div class="mainpage__displaybox"><span class="mainpage__displaybox-content">?</span>
+                <div class="mainpage__displaybox"><span id="mainpage__displaybox-content">?</span>
                 </div>
-                <h2 class="mainpage__text" id="mainpage__txt">START GUESSING</h2>
+                <h2 class="mainpage__text" id="mainpage__txt">start guessing</h2>
             </div>
             <div class="mainpage__inputwrapper">
-                <form id="mainpage__input-form">
-                    <input class="mainpage__input" id="mainpage__inp" required type="number">
+                    <input class="mainpage__input" id="mainpage__inp" required type="number" min="1" max="100"  >
                     <button class="mainpage__button --active" id="mainpage__btn">CHECK</button>
                 </form>
             </div>

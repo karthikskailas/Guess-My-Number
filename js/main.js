@@ -8,6 +8,8 @@ const mainPageDisplayBox = document.querySelector(
 const mainPageInputBox = document.querySelector("#mainpage__inp");
 const mainPageForm = document.querySelector("#mainpage__input-form");
 const mainPageTxt = document.querySelector("#mainpage__txt");
+const waveFooterDefault = document.querySelector("#footer__image");
+const waveFooterVictory = document.querySelector("#footer__images");
 
 /* ---------- Set Data and Get data to session Storage --------- */
 
@@ -69,6 +71,8 @@ const easyMode = () => {
 	let guessNum = mainPageInputBox.value;
 	if (parseInt(guessNum) === randomNumEasy) {
 		afterWin();
+		backGroundSet();
+		waveChangeSet();
 	} else if (parseInt(guessNum) > randomNumEasy) {
 		mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 	} else {
@@ -86,11 +90,34 @@ mainPageForm.addEventListener("submit", (e) => {
 
 const restartButton = document.querySelector("#headermainpage__restartbtns");
 const restartBtn = () => {
-	mainPageTxt.innerText = `start guessing`;
+	mainPageTxt.innerText = `start guessing...`;
 	mainPageInputBox.removeAttribute("onkeydown");
 	mainPageInputBox.style.caretColor = "white";
 	mainPageDisplayBox.innerText = "?";
 	randomNumEasy = Math.floor(Math.random() * 20) + 1;
+	backGroundRevert();
+	waveChangeRevert();
 	console.log(randomNumEasy);
 };
 restartButton.addEventListener("click", restartBtn);
+
+// Get the root element
+let root = document.querySelector(":root");
+
+const backGroundSet = () => {
+	// Set the value of variable to another value in this case primary-clr change to set color
+	root.style.setProperty("--primary-clr", "#6BC779");
+};
+const backGroundRevert = () => {
+	// reverting the change of BackGroundSet
+	root.style.setProperty("--primary-clr", "#335F70");
+};
+
+const waveChangeSet = () => {
+	waveFooterDefault.classList.add("--display");
+	waveFooterVictory.classList.remove("--display");
+};
+const waveChangeRevert = () => {
+	waveFooterVictory.classList.add("--display");
+	waveFooterDefault.classList.remove("--display");
+};

@@ -1,13 +1,17 @@
 let userId;
 let option;
+
 const mainContentForm = document.querySelector("#maincontent__form"); // Selecting form from maincontent
 const userInput = document.querySelector("#userId"); // Selecting input inside the form
+
 const mainPageDisplayBox = document.querySelector(
 	"#mainpage__displaybox-content"
 );
 const mainPageInputBox = document.querySelector("#mainpage__inp");
+
 const mainPageForm = document.querySelector("#mainpage__input-form");
 const mainPageTxt = document.querySelector("#mainpage__txt");
+
 const waveFooterDefault = document.querySelector("#footer__image");
 const waveFooterVictory = document.querySelector("#footer__images");
 
@@ -66,8 +70,8 @@ const afterWin = () => {
 	mainPageInputBox.setAttribute("onkeydown", "return false");
 	mainPageInputBox.style.caretColor = "transparent";
 };
-
-const easyMode = () => {
+// game logic
+const gameLogic = () => {
 	let guessNum = mainPageInputBox.value;
 	if (parseInt(guessNum) === randomNumEasy) {
 		afterWin();
@@ -80,15 +84,17 @@ const easyMode = () => {
 	}
 	mainPageInputBox.value = "";
 };
-
+// to run the game logic when submit
 mainPageForm.addEventListener("submit", (e) => {
 	e.preventDefault();
-	easyMode();
+	gameLogic();
 });
 
 /* ----------------- Restart button ------------------------ */
 
 const restartButton = document.querySelector("#headermainpage__restartbtns");
+
+// to restart the game
 const restartBtn = () => {
 	mainPageTxt.innerText = `start guessing...`;
 	mainPageInputBox.removeAttribute("onkeydown");
@@ -99,7 +105,12 @@ const restartBtn = () => {
 	waveChangeRevert();
 	console.log(randomNumEasy);
 };
-restartButton.addEventListener("click", restartBtn);
+
+// to check if the restartButton is exists on the page
+
+if (restartButton) {
+	restartButton.addEventListener("click", restartBtn);
+}
 
 // Get the root element
 let root = document.querySelector(":root");
@@ -113,10 +124,12 @@ const backGroundRevert = () => {
 	root.style.setProperty("--primary-clr", "#335F70");
 };
 
+// to display hidden green waves img and hide blue wave
 const waveChangeSet = () => {
 	waveFooterDefault.classList.add("--display");
 	waveFooterVictory.classList.remove("--display");
 };
+// to hidden green waves img and display blue wave
 const waveChangeRevert = () => {
 	waveFooterVictory.classList.add("--display");
 	waveFooterDefault.classList.remove("--display");

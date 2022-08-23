@@ -23,7 +23,7 @@
 :root {
     --primary-clr: #335F70;
     --font-clr: white;
-    --font-family: 'ps-gameday', 'Roboto', sans serif;
+    --font-family: 'ps-gameday', sans serif;
     --font-s1: 8rem;
     --font-s2: 1.5rem;
     --font-family-disbox: 'Ultra', serif;
@@ -156,6 +156,7 @@ footer {
         margin-top: 3rem;
 
     }
+
     .maincontent__submitbtn {
         width: 50px;
         margin-top: 2rem;
@@ -299,7 +300,7 @@ footer {
 .headermainpage__logo {
     font-size: 4rem;
     text-align: center;
-    margin-left: 10rem;
+    margin-left: 12rem;
 }
 
 .headermainpage__wrapper {
@@ -349,21 +350,23 @@ footer {
 
 /* ------------------------- styling display box ------------------- */
 
-
+.mainpage__textwrapper{
+    margin-right:2rem;
+}
 
 
 .mainpage__displaybox {
     font-family: var(--font-family-disbox);
-    color: var(--primary-clr);
-    display: block;
-    margin-inline: 3.5rem;
-    background-color: white;
-    padding: 43px 15px;
-    border-radius: 15px;
-    font-size: 6rem;
-    text-align: center;
-    max-width: 313px;
-    max-height: 191px;
+        color: var(--primary-clr);
+        display: block;
+        margin-inline: auto;
+        background-color: white;
+        padding: 36px 15px;
+        border-radius: 15px;
+        font-size: 6rem;
+        text-align: center;
+        max-width: 286px;
+        max-height: 191px;
 }
 
 /* ---------------- styling text,input and button ---------------------*/
@@ -372,6 +375,7 @@ footer {
     text-align: center;
     margin-block: 1.5rem;
     letter-spacing: 3px;
+    margin-left: 1.6rem;
 }
 
 .mainpage__input,
@@ -432,6 +436,9 @@ input::-webkit-inner-spin-button {
         justify-content: space-evenly;
 
     }
+        .mainpage__textwrapper {
+            margin-right: 2rem;
+        }
 
     .headermainpage__logo {
         font-size: 3rem;
@@ -477,6 +484,7 @@ input::-webkit-inner-spin-button {
         display: none;
 
     }
+      
 
     .headermainpage {
         margin-block-start: 1.5rem;
@@ -569,7 +577,9 @@ input::-webkit-inner-spin-button {
 
 
     }
-
+.mainpage__textwrapper {
+    margin-right: 0rem;
+}
     .headermainpage__logo {
         font-size: 2rem;
         text-align: center;

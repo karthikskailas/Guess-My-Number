@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Guess My Number | Can You Guess it..</title>
-        <link rel="stylesheet" href="css/main.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess My Number | Can You Guess it..</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <header class="headermainpage">
-        <img src="icon/help-and-restart/restart.svg" alt="restart" class="headermainpage__restartbtn" id="headermainpage__restartbtns">
+        <img src="icon/help-and-restart/restart.svg" alt="restart" class="headermainpage__restartbtn --active"
+            id="headermainpage__restartbtns">
         <div class="headermainpage__menubar">
             <img src="icon/buttons/Menu-icon.svg" class="headermainpage__menubar-icon" alt="menubar">
             <h1 class="headermainpage__logo">GUESS MY NUMBER</h1>
@@ -20,11 +21,11 @@
             <h2 class="headermainpage__menutext">LEVEL</h2>
             <div class="headermainpage__dropdown">
                 <form id="mainpage__input-form">
-                <select id="headermainpage__dropmenu-select" class="headermainpage__dropmenu" name="cars" >
-                    <option selected="selected" hidden value="1">EASY</option>
-                    <option disabled value="2"> coming soon </option>
-                
-                </select>
+                    <select id="headermainpage__dropmenu-select" class="headermainpage__dropmenu" name="cars">
+                        <option selected="selected" hidden value="1">EASY</option>
+                        <option disabled value="2"> coming soon </option>
+
+                    </select>
             </div>
         </div>
     </header>
@@ -36,8 +37,8 @@
                 <h2 class="mainpage__text" id="mainpage__txt">start guessing</h2>
             </div>
             <div class="mainpage__inputwrapper">
-                    <input class="mainpage__input" id="mainpage__inp" required type="number" min="1" max="20"  >
-                    <button class="mainpage__button --active" id="mainpage__btn">CHECK</button>
+                <input class="mainpage__input" id="mainpage__inp" required type="number" min="1" max="20">
+                <button class="mainpage__button --active" id="mainpage__btn">CHECK</button>
                 </form>
             </div>
 
@@ -46,12 +47,16 @@
 
     <footer>
         <img src="img/Welcome-Page/waves/Wave-Down.svg" alt="wave" class="footer__img" id="footer__image">
-        <img src="img/Home-page/waves/win/mainpage/Wave.svg" alt="wave" id="footer__images" class="footer__img --display ">
+        <img src="img/Home-page/waves/win/mainpage/Wave.svg" alt="wave" id="footer__images"
+            class="footer__img --display ">
         <img src="img/Welcome-Page/waves/Wave-Down-Mob.svg" alt="wave" class="footer__img2">
     </footer>
 
-
+<div id="screen"></div>
+    <script src="js/confetti.min.js"></script>
     <script src="js/main.js"></script>
+
+
 </body>
 
 </html>

@@ -77,8 +77,8 @@ const gameLogic = () => {
 		afterWin();
 		backGroundSet();
 		waveChangeSet();
-		startit();
-		stopit();
+		startIt();
+		stopIt();
 	} else if (parseInt(guessNum) > randomNumEasy) {
 		mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 	} else {
@@ -138,14 +138,22 @@ const waveChangeRevert = () => {
 };
 
 /* -------------- Confetti effect ---------------------- */
-const startit = () => {
+//starts
+const startIt = () => {
 	setTimeout(function () {
 		confetti.start();
 	}, 10);
 };
+
 // Stops
-const stopit = () => {
+const stopIt = () => {
 	setTimeout(function () {
 		confetti.stop();
 	}, 5000);
 };
+
+// to fadeOut the loading screen on load
+
+$(window).on("load", function () {
+	$(".loader-wrapper").fadeOut("slow");
+});

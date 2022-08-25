@@ -12,15 +12,39 @@
 <body>
     <header class="headerselect">
         <h1>Select Level</h1>
-        <div class="headerselect__form">
-            <form action="main-page.html">
+        <div class="headerselect__wrapper">
+            <form action="main-page.html" >
+                <div class="headerselect-form">
+
+                
+                <div class="headerselect__formwrapper">
+                    <input type="radio" name="radio" id="easy" value="easy">
+                    <div class="headerselect__formtile">
+                        <label for="easy">EASY</label>
+                    </div>
+                </div>
+
+                <div class="headerselect__formwrapper ">
+                    <input type="radio" name="radio" id="MEDIUM" value="medium">
+                    <div class="headerselect__formtile ">
+                        <label for="MEDIUM">MEDIUM</label>
+                    </div>
+                </div>
+
+                <div class="headerselect__formwrapper">
+                    <input type="radio" name="radio" id="HARD" value="hard">
+                    <div class="headerselect__formtile">
+                        <label for="HARD">HARD</label>
+                    </div>
+                </div> 
+                </div>
+            <input type="image" name="submit" class="headerselect__submitbtn" src="icon/buttons/arrow.svg" alt="button">
 
             </form>
         </div>
     </header>
     <footer>
         <img src="img/Welcome-Page/waves/Wave-Down.svg" alt="wave" class="footer__img" id="footer__image">
-        <img src="img/Home-page/waves/win/Wave.svg" alt="wave" id="footer__images" class="footer__img --display ">
         <img src="img/Welcome-Page/waves/Wave-Down-Mob.svg" alt="wave" class="footer__img2">
     </footer>
 

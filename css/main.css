@@ -1,4 +1,5 @@
 /* -------------------- Add font family------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Ultra&display=swap');
 
@@ -886,4 +887,96 @@ input:hover+.headerselect__formtile {
         margin-top: 5rem;
         width: 60px;
     }
+}
+
+/* --------------- POPUP ----------------------- */
+
+
+
+
+.popup {
+    
+    z-index: 999999;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease;
+    font-family: 'Roboto', sans-serif;
+    visibility: hidden;
+    transition: visibility 0.5s ease-in-out;
+
+    
+}
+
+.popup__box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: var(--primary-clr);
+    position: relative;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    max-width: 604px;
+    margin: 20px;
+    padding: 50px 40px;
+    border-radius: 20px;
+    opacity: 0;
+    transition:opacity 0.6s ease ;
+    
+}
+.popup.--active .popup__box{  
+    opacity: 1;
+}
+.popup__box h2{
+    font-size: 2rem;
+    margin-bottom:2rem ;
+    font-weight: 900;
+}
+.popup__box p{
+    margin-bottom:1rem ;
+    line-height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    text-align: justify;
+    word-break: keep-all;
+    text-transform: uppercase;
+
+}
+.unit{
+    width: 27rem;
+}
+
+
+table,
+th,
+td {
+    border: 2px solid var(--primary-clr);
+    padding: 15px;
+    text-align: center;
+    border-collapse:collapse;
+    /* margin-inline: auto; */
+   
+}
+.popup__box button{
+    margin-inline:auto;
+    display:block;
+    margin-top: 1.5rem;
+    padding: 1em 2.4em;
+    border-radius: 10px;
+    background-color: var(--button-clr);
+    color: white;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
+
+}
+
+.--active {
+    visibility: visible;
 }

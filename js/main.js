@@ -82,33 +82,30 @@ const validateForm = (e) => {
 		return formValid;
 	}
 };
-const Level =() =>{
+const Level = () => {
 	levelChosen = document.querySelector('input[name="radio"]:checked').value;
 	setSessionStore();
-}
-if(headerSelectForm){
+};
+if (headerSelectForm) {
 	headerSelectForm.addEventListener("submit", validateForm);
 	headerSelectForm.addEventListener("submit", Level);
 }
 
 /* ------------- accessing level and storing in session storage ------------------- */
 
-
 const setSessionStore = () => {
 	sessionStorage.setItem("selectedLvl", levelChosen);
 };
 const getSessionStore = () => {
 	levelChosen = sessionStorage.getItem("selectedLvl");
-	
-
 };
 
 /* -------------------- Mode ------------------- */
 
-	const randomNumEasy = Math.floor(Math.random() * 20) + 1;
-	const randomNumMedium = Math.floor(Math.random() * 50) + 1;
-	const randomNumHard = Math.floor(Math.random() * 100) + 1;
-
+const randomNumEasy = Math.floor(Math.random() * 20) + 1;
+const randomNumMedium = Math.floor(Math.random() * 50) + 1;
+const randomNumHard = Math.floor(Math.random() * 100) + 1;
+console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`)
 getSessionStore();
 
 // game logic
@@ -156,3 +153,27 @@ if (mainPageForm) {
 		GameLogic();
 	});
 }
+
+// to prevent the user from going back
+// const preventBack = () => {
+// 	window.history.forward();
+// };
+// setTimeout("preventBack()", 0);
+// window.onunload = function () {
+// 	null;
+// };
+
+/* -------------------- Popup --------------------- */
+
+const popUp = document.querySelector(".popup");
+const popUpBtn = document.querySelector(".popup__button");
+
+const btnClose = () => {
+	popUp.classList.remove("--active");
+};
+window.addEventListener("load", () => {
+	setTimeout(() => {
+		if (popUp) popUp.classList.add("--active");
+	}, 200);
+});
+if(popUpBtn)popUpBtn.addEventListener("click", btnClose);

@@ -48,6 +48,10 @@ body {
 
 }
 
+.--display {
+    display: none;
+}
+
 /*----------------------------- header styling --------------------*/
 
 .header__icon {
@@ -156,11 +160,12 @@ footer {
         margin-top: 3rem;
 
     }
-         .maincontent__submitbtn {
-             width: 50px;
-             margin-top: 2rem;
-    
-         }
+
+    .maincontent__submitbtn {
+        width: 50px;
+        margin-top: 2rem;
+
+    }
 
 }
 
@@ -219,11 +224,12 @@ footer {
         display: block;
         width: 100%;
     }
-         .maincontent__submitbtn {
-             width: 40px;
-             margin-top: 2rem;
-    
-         }
+
+    .maincontent__submitbtn {
+        width: 40px;
+        margin-top: 2rem;
+
+    }
 }
 
 @media only screen and (max-width:400px) {
@@ -625,5 +631,259 @@ input::-webkit-inner-spin-button {
         display: flex;
         margin-right: 2rem;
 
+    }
+}
+
+
+/* ____________________________ select lvl ____________________________ */
+
+.headerselect h1 {
+    font-size: 4rem;
+    margin-block: 1.5rem;
+    text-align: center;
+}
+
+.headerselect__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-top:12rem; */
+
+}
+
+.headerselect-form {
+
+    display: flex;
+    height: 35vh;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 4rem;
+    gap: 200px;
+
+    flex-wrap: wrap;
+}
+
+.headerselect__formwrapper {
+    position: relative;
+    height: 7rem;
+    width: 7rem;
+    right: 3rem;
+
+
+}
+
+
+.headerselect__formwrapper input {
+    position: absolute;
+    height: 188%;
+    width: 180%;
+    margin: 5px;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+
+
+}
+
+.headerselect__formwrapper .headerselect__formtile {
+    display: flex;
+    height: 188%;
+    width: 188%;
+    border: 2px solid white;
+    border-radius: 5px;
+    transition: all 300ms ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+label {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+}
+
+.headerselect__submitbtn {
+    display: block;
+    margin-inline: auto;
+    margin-top: 6rem;
+    width: 60px;
+}
+
+input:checked+.headerselect__formtile {
+    background-color: #234F60;
+    box-shadow: 0 0 12px #423f3f;
+
+
+}
+
+input:hover+.headerselect__formtile {
+    background-color: #234F60;
+
+
+}
+
+
+@media screen and (max-width:1100px) {
+    .headerselect-form {
+
+        display: flex;
+        height: 35vh;
+        justify-content: center;
+        align-items: center;
+        margin-inline: 4rem;
+        gap: 150px;
+
+        flex-wrap: wrap;
+    }
+
+    .headerselect__formwrapper {
+        position: relative;
+        height: 7rem;
+        width: 7rem;
+        right: 3rem;
+
+
+    }
+
+    .headerselect__formwrapper input {
+        position: absolute;
+        height: 188%;
+        width: 180%;
+        margin: 5px;
+        cursor: pointer;
+        z-index: 2;
+        opacity: 0;
+
+
+    }
+
+    .headerselect__formwrapper .headerselect__formtile {
+        display: flex;
+        height: 188%;
+        width: 188%;
+        border: 2px solid white;
+        border-radius: 5px;
+        transition: all 300ms ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+
+    }
+}
+
+@media screen and (max-width:769px) {
+    .headerselect__formwrapper {
+        position: relative;
+        height: 3rem;
+        width: 10rem;
+        right: 4rem;
+
+
+    }
+
+    .headerselect-form {
+
+        display: flex;
+        height: 35vh;
+        justify-content: center;
+        align-items: center;
+        margin-inline: 11rem;
+        gap: 100px;
+        flex-wrap: wrap;
+    }
+
+    .headerselect__submitbtn {
+        display: block;
+        margin-inline: auto;
+        margin-top: 13rem;
+        width: 60px;
+    }
+
+    .headerselect__submitbtn {
+        display: block;
+        margin-inline: auto;
+        margin-top: 10rem;
+        width: 60px;
+    }
+
+}
+
+
+@media screen and (max-width:560px) {
+    .headerselect__formwrapper {
+        position: relative;
+        height: 2rem;
+        width: 10rem;
+        right: 4rem;
+
+
+
+    }
+
+    .headerselect h1 {
+        font-size: 4rem;
+        margin-block: 0rem;
+        margin: 2rem 0 2rem 0;
+        text-align: center;
+    }
+
+    .headerselect-form {
+
+        display: flex;
+        height: 35vh;
+        justify-content: center;
+        align-items: center;
+        margin-inline: 6rem;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    .headerselect__submitbtn {
+        display: block;
+        margin-inline: auto;
+        margin-top: 4rem;
+        width: 60px;
+    }
+
+}
+
+@media screen and (max-width:400px) {
+
+    .headerselect__formwrapper {
+        position: relative;
+        height: 2rem;
+        width: 9rem;
+        right: 4rem;
+
+
+
+    }
+
+    .headerselect h1 {
+        font-size: 3rem;
+        margin-block: 0rem;
+        margin: 3rem 0 4rem 0;
+        text-align: center;
+    }
+
+    .headerselect-form {
+
+        display: flex;
+        height: 35vh;
+        justify-content: center;
+        align-items: center;
+        margin-inline: 5rem;
+        gap: 50px;
+        flex-wrap: wrap;
+    }
+
+    .headerselect__submitbtn {
+        display: block;
+        margin-inline: auto;
+        margin-top: 5rem;
+        width: 60px;
     }
 }

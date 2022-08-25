@@ -10,35 +10,67 @@
 </head>
 
 <body>
+    <div class="popup">
+        <div class="popup__box">
+            <h2>Note</h2>
+
+            <div class="popup__descri">
+                <p>Level indicates the range of the number where the computer chooses a random number that you want to guess.
+</p>
+                <div class="popup__tablewrap">
+                    <table class="popup__table">
+                        <tr>
+                            <th class="leftup">LEVEL</th>
+                            <th class="unit">RANGE OF NUMBER</th>
+                        </tr>
+                        <tr>
+                            <td>EASY</td>
+                            <td>BETWEEN 1 TO 20</td>
+                        </tr>
+                        <tr>
+                            <td>MEDIUM</td>
+                            <td>BETWEEN 1 TO 50</td>
+                        </tr>
+                        <tr>
+                            <td class="leftdown">HARD</td>
+                            <td class="rightdowm">BETWEEN 1 TO 100</td>
+                        </tr>
+                    </table>
+                </div>
+                <button class="popup__button" >OK</button>
+            </div>
+        </div>
+    </div>
     <header class="headerselect">
         <h1>Select Level</h1>
         <div class="headerselect__wrapper">
-            <form  action="main-page.html" id="headerselect__form" >
+            <form action="main-page.html" id="headerselect__form">
                 <div class="headerselect__form-div">
 
-                
-                <div class="headerselect__formwrapper">
-                    <input type="radio" name="radio" id="easy" value="easy">
-                    <div class="headerselect__formtile">
-                        <label for="easy">EASY</label>
-                    </div>
-                </div>
 
-                <div class="headerselect__formwrapper ">
-                    <input type="radio" name="radio" id="MEDIUM" value="medium">
-                    <div class="headerselect__formtile ">
-                        <label for="MEDIUM">MEDIUM</label>
+                    <div class="headerselect__formwrapper">
+                        <input type="radio" name="radio" id="easy" value="easy">
+                        <div class="headerselect__formtile">
+                            <label for="easy">EASY</label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="headerselect__formwrapper">
-                    <input type="radio" name="radio" id="HARD" value="hard">
-                    <div class="headerselect__formtile">
-                        <label for="HARD">HARD</label>
+                    <div class="headerselect__formwrapper ">
+                        <input type="radio" name="radio" id="MEDIUM" value="medium">
+                        <div class="headerselect__formtile ">
+                            <label for="MEDIUM">MEDIUM</label>
+                        </div>
                     </div>
-                </div> 
+
+                    <div class="headerselect__formwrapper">
+                        <input type="radio" name="radio" id="HARD" value="hard">
+                        <div class="headerselect__formtile">
+                            <label for="HARD">HARD</label>
+                        </div>
+                    </div>
                 </div>
-            <input type="image" name="submit" class="headerselect__submitbtn" src="icon/buttons/arrow.svg" alt="button">
+                <input type="image" name="submit" class="headerselect__submitbtn" src="icon/buttons/arrow.svg"
+                    alt="button">
 
             </form>
         </div>

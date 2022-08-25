@@ -23,7 +23,7 @@
 :root {
     --primary-clr: #335F70;
     --font-clr: white;
-    --font-family: 'ps-gameday', 'Roboto', sans serif;
+    --font-family: 'ps-gameday', sans serif;
     --font-s1: 8rem;
     --font-s2: 1.5rem;
     --font-family-disbox: 'Ultra', serif;
@@ -651,7 +651,7 @@ input::-webkit-inner-spin-button {
 
 }
 
-.headerselect-form {
+.headerselect__form-div {
 
     display: flex;
     height: 35vh;
@@ -726,7 +726,7 @@ input:hover+.headerselect__formtile {
 
 
 @media screen and (max-width:1100px) {
-    .headerselect-form {
+    .headerselect__form-div {
 
         display: flex;
         height: 35vh;
@@ -784,7 +784,7 @@ input:hover+.headerselect__formtile {
 
     }
 
-    .headerselect-form {
+    .headerselect__form-div {
 
         display: flex;
         height: 35vh;
@@ -830,7 +830,7 @@ input:hover+.headerselect__formtile {
         text-align: center;
     }
 
-    .headerselect-form {
+    .headerselect__form-div {
 
         display: flex;
         height: 35vh;
@@ -869,7 +869,7 @@ input:hover+.headerselect__formtile {
         text-align: center;
     }
 
-    .headerselect-form {
+    .headerselect__form-div {
 
         display: flex;
         height: 35vh;

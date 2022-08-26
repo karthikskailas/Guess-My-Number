@@ -45,9 +45,6 @@ if (mainContentForm) {
 getSessionStorage();
 textAdd();
 
-
-
-
 /* validating radio */
 
 const headerSelectForm = document.querySelector("#headerselect__form");
@@ -108,6 +105,7 @@ const GameLogic = () => {
 		console.log("easy");
 		let guessNum = mainPageInputBox.value;
 		if (parseInt(guessNum) === randomNumEasy) {
+			mainPageInputBox.value = randomNumEasy;
 			afterWin();
 			backGroundSet();
 			waveChangeSet();
@@ -125,6 +123,7 @@ const GameLogic = () => {
 		if (parseInt(guessNum) > randomNumMedium) {
 			mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 		} else if (parseInt(guessNum) === randomNumMedium) {
+			mainPageInputBox.value = randomNumMedium;
 			afterWin();
 			backGroundSet();
 			waveChangeSet();
@@ -140,6 +139,7 @@ const GameLogic = () => {
 		if (parseInt(guessNum) > randomNumHard) {
 			mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 		} else if (parseInt(guessNum) === randomNumHard) {
+			mainPageInputBox.value = randomNumHard;
 			afterWin();
 			backGroundSet();
 			waveChangeSet();
@@ -302,10 +302,7 @@ const lvlChange = () => {
 };
 if (dropDown) dropDown.addEventListener("change", lvlChange);
 
-
 /* ----- for Displaying input number in the display box ------- */
-
-
 
 const mainPageDisplayBox = document.querySelector(
 	"#mainpage__displaybox-content"
@@ -313,61 +310,29 @@ const mainPageDisplayBox = document.querySelector(
 const mainPageInputBox = document.querySelector("#mainpage__inp");
 
 mainPageInputBox.onkeyup = mainPageInputBox.onkeypress = function () {
-	if(levelChosen === 'easy' || levelChosen === 'medium'){
-		console.log('condition checked');
-		if (mainPageDisplayBox.innerText.length < 2) {
-			mainPageDisplayBox.innerHTML = this.value;
-		}
-	}else{
-		console.log('condition not checked');
-		if (mainPageDisplayBox.innerText.length < 3) {
-			mainPageDisplayBox.innerHTML = this.value;
-		}
-
+	console.log("condition not checked");
+	if (mainPageDisplayBox.innerText.length < 3) {
+		mainPageDisplayBox.innerHTML = this.value;
 	}
-	
-	
 	if (mainPageInputBox.value === "") {
 		mainPageDisplayBox.innerText = "?";
 	}
-	
 };
 
 /* ---- limit the character to input  */
-const limitCharacter = () =>{
-	console.log('condition  checked bro');
-
-	if(levelChosen==='easy' ||levelChosen==='medium'){
-		var max_chars = 2;
-	
-	$("#mainpage__inp").keydown(function (e) {
-		if ($(this).val().length >= max_chars) {
-			$(this).val($(this).val().substr(0, max_chars));
-		}
-	});
-	
-	$("#mainpage__inp").keyup(function (e) {
-		if ($(this).val().length >= max_chars) {
-			$(this).val($(this).val().substr(0, max_chars));
-		}
-	});
-	
-}else{
-	
+const limitCharacter = () => {
 	var max_chars = 3;
-	console.log('condition not checked bro');
+	console.log("condition not checked bro");
 	$("#mainpage__inp").keydown(function (e) {
 		if ($(this).val().length >= max_chars) {
 			$(this).val($(this).val().substr(0, max_chars));
 		}
 	});
-	
+
 	$("#mainpage__inp").keyup(function (e) {
 		if ($(this).val().length >= max_chars) {
 			$(this).val($(this).val().substr(0, max_chars));
 		}
 	});
-	
-}
-}
-mainPageInputBox.addEventListener('input',limitCharacter)
+};
+mainPageInputBox.addEventListener("input", limitCharacter);

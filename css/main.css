@@ -48,6 +48,7 @@ body {
     flex-direction: column;
 
 }
+
 /* ________________ loading Screen_____________ */
 .loader-wrapper {
     width: 100%;
@@ -121,6 +122,7 @@ body {
         height: 0%;
     }
 }
+
 /* ___________ for the confetti ________________ */
 #screen {
     position: fixed;
@@ -163,6 +165,7 @@ body {
 
 .maincontent {
     display: flex;
+    margin-top: 2rem;
     padding: 1rem;
     flex-direction: column;
     align-items: center;
@@ -241,7 +244,7 @@ footer {
     }
 
     .maincontent {
-        margin-top: 3rem;
+        margin-top: 10rem;
 
     }
 
@@ -279,7 +282,7 @@ footer {
     }
 
     .maincontent {
-        margin-top: 3rem;
+        margin-top: 7rem;
     }
 
     input::placeholder {
@@ -341,7 +344,7 @@ footer {
     }
 
     .maincontent {
-        margin-top: 6rem;
+        margin-top: rem;
     }
 
     input::placeholder {
@@ -438,23 +441,23 @@ footer {
 
 /* ------------------------- styling display box ------------------- */
 
-.mainpage__textwrapper{
-    margin-right:2rem;
+.mainpage__textwrapper {
+    margin-right: 2rem;
 }
 
 
 .mainpage__displaybox {
     font-family: var(--font-family-disbox);
-        color: var(--primary-clr);
-        display: block;
-        margin-inline: auto;
-        background-color: white;
-        padding: 36px 15px;
-        border-radius: 15px;
-        font-size: 6rem;
-        text-align: center;
-        max-width: 286px;
-        max-height: 191px;
+    color: var(--primary-clr);
+    display: block;
+    margin-inline: auto;
+    background-color: white;
+    padding: 36px 15px;
+    border-radius: 15px;
+    font-size: 6rem;
+    text-align: center;
+    max-width: 286px;
+    max-height: 191px;
 }
 
 /* ---------------- styling text,input and button ---------------------*/
@@ -487,7 +490,7 @@ footer {
     font-family: var(--font-family);
     margin-bottom: 1.9rem;
     background-color: var(--primary-clr);
-    
+
 }
 
 input::-webkit-outer-spin-button,
@@ -502,17 +505,17 @@ input::-webkit-inner-spin-button {
     color: white;
     font-size: 1.1rem;
     border-radius: 10px;
-    transition: 300ms ease;
+    transition: .1s ease;
     letter-spacing: 2px;
     background-color: var(--button-clr);
-    
-    
+
+
 }
 
-.--active:hover {
-    opacity: .6;
+.active:hover {
+    opacity: .9;
     cursor: pointer;
-    
+
 }
 
 
@@ -532,9 +535,10 @@ input::-webkit-inner-spin-button {
         justify-content: space-evenly;
 
     }
-        .mainpage__textwrapper {
-            margin-right: 2rem;
-        }
+
+    .mainpage__textwrapper {
+        margin-right: 2rem;
+    }
 
     .headermainpage__logo {
         font-size: 3rem;
@@ -580,7 +584,7 @@ input::-webkit-inner-spin-button {
         display: none;
 
     }
-      
+
 
     .headermainpage {
         margin-block-start: 1.5rem;
@@ -673,9 +677,11 @@ input::-webkit-inner-spin-button {
 
 
     }
-.mainpage__textwrapper {
-    margin-right: 0rem;
-}
+
+    .mainpage__textwrapper {
+        margin-right: 0rem;
+    }
+
     .headermainpage__logo {
         font-size: 2rem;
         text-align: center;
@@ -1000,7 +1006,7 @@ input:hover+.headerselect__formtile {
 
 
 .popup {
-    
+
     z-index: 999999;
     position: fixed;
     background: rgba(255, 255, 255, 0.1);
@@ -1015,7 +1021,7 @@ input:hover+.headerselect__formtile {
     visibility: hidden;
     transition: visibility 0.5s ease-in-out;
 
-    
+
 }
 
 .popup__box {
@@ -1032,19 +1038,22 @@ input:hover+.headerselect__formtile {
     padding: 50px 40px;
     border-radius: 20px;
     opacity: 0;
-    transition:opacity 0.6s ease ;
-    
+    transition: opacity 0.6s ease;
+
 }
-.popup.--active .popup__box{  
+
+.popup.--active .popup__box {
     opacity: 1;
 }
-.popup__box h2{
+
+.popup__box h2 {
     font-size: 2rem;
-    margin-bottom:2rem ;
+    margin-bottom: 2rem;
     font-weight: 900;
 }
-.popup__box p{
-    margin-bottom:1rem ;
+
+.popup__box p {
+    margin-bottom: 1rem;
     line-height: 30px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
@@ -1054,7 +1063,8 @@ input:hover+.headerselect__formtile {
     text-transform: uppercase;
 
 }
-.unit{
+
+.unit {
     width: 27rem;
 }
 
@@ -1065,19 +1075,20 @@ td {
     border: 2px solid var(--primary-clr);
     padding: 15px;
     text-align: center;
-    border-collapse:collapse;
+    border-collapse: collapse;
     /* margin-inline: auto; */
-   
+
 }
-.popup__box button{
-    margin-inline:auto;
-    display:block;
+
+.popup__box button {
+    margin-inline: auto;
+    display: block;
     margin-top: 1.5rem;
     padding: 1em 2.4em;
     border-radius: 10px;
     background-color: var(--button-clr);
     color: white;
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 700;
 
 }

@@ -104,13 +104,15 @@ const afterWin = () => {
 let easyScore = 20;
 let mediumScore = 50;
 let hardScore = 100;
-mainPageInputBox.addEventListener("input", () => {
-	if (levelChosen === "easy") mainPageTxt.innerText = ` Your Score: ${easyScore}`;
+const inputScore = () => {
+	if (levelChosen === "easy")
+		mainPageTxt.innerText = ` Your Score: ${easyScore}`;
 	else if (levelChosen === "medium")
 		mainPageTxt.innerText = `Your Score: ${mediumScore}`;
 	else if (levelChosen === "hard")
 		mainPageTxt.innerText = `Your Score: ${hardScore}`;
-});
+};
+
 // game logic
 
 const GameLogic = () => {
@@ -371,3 +373,5 @@ const limitCharacter = () => {
 	});
 };
 mainPageInputBox.addEventListener("input", limitCharacter);
+
+mainPageInputBox.addEventListener("input", inputScore);

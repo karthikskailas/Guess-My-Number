@@ -14,7 +14,7 @@
         <span class="loader"><span class="loader-inner"></span></span>
     </div>
     <header class="headermainpage">
-        <img src="icon/help-and-restart/restart.svg" alt="restart" class="headermainpage__restartbtn --active"
+        <img src="icon/help-and-restart/restart.svg" alt="restart" class="headermainpage__restartbtn active"
             id="headermainpage__restartbtns">
         <div class="headermainpage__menubar">
             <img src="icon/buttons/Menu-icon.svg" class="headermainpage__menubar-icon" alt="menubar">
@@ -25,8 +25,10 @@
             <div class="headermainpage__dropdown">
                 <form id="mainpage__input-form">
                     <select id="headermainpage__dropmenu-select" class="headermainpage__dropmenu" name="cars">
-                        <option selected="selected" hidden value="1">EASY</option>
-                        <option disabled value="2"> coming soon </option>
+                        <option   value="easy">EASY</option>
+                        <option  value="medium"> MEDIUM </option>
+                        <option value="hard"> HARD </option>
+                        
 
                     </select>
             </div>
@@ -40,8 +42,8 @@
                 <h2 class="mainpage__text" id="mainpage__txt">start guessing</h2>
             </div>
             <div class="mainpage__inputwrapper">
-                <input class="mainpage__input" id="mainpage__inp" required type="number" min="1" max="20">
-                <button class="mainpage__button --active" id="mainpage__btn">CHECK</button>
+                <input class="mainpage__input" id="mainpage__inp" required type="number" min="1" >
+                <button class="mainpage__button active" id="mainpage__btn">CHECK</button>
                 </form>
             </div>
 
@@ -52,7 +54,9 @@
         <img src="img/Welcome-Page/waves/Wave-Down.svg" alt="wave" class="footer__img" id="footer__image">
         <img src="img/Home-page/waves/win/mainpage/Wave.svg" alt="wave" id="footer__images"
             class="footer__img --display ">
-        <img src="img/Welcome-Page/waves/Wave-Down-Mob.svg" alt="wave" class="footer__img2">
+        <img src="img/Home-page/waves/win/mainpage/Wave-mob.svg" alt="wave" id="footer__image-mob"
+            class="footer__img2 --display ">
+        <img src="img/Welcome-Page/waves/Wave-Down-Mob.svg" alt="wave" class="footer__img2 " id="footer__images-mob">
     </footer>
 
     <div id="screen"></div>

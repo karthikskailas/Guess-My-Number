@@ -91,30 +91,59 @@ let randomNumEasy = Math.floor(Math.random() * 20) + 1;
 let randomNumMedium = Math.floor(Math.random() * 50) + 1;
 let randomNumHard = Math.floor(Math.random() * 100) + 1;
 console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`);
+
 /* ----------- random number generate ---------------- */
+const mainPageInputBox = document.querySelector("#mainpage__inp");
+
 const afterWin = () => {
 	mainPageTxt.innerText = `you win the game 🎉😂, ${userId}`;
 	mainPageInputBox.setAttribute("onkeydown", "return false");
 	mainPageInputBox.style.caretColor = "transparent";
 };
 
+let easyScore = 20;
+let mediumScore = 50;
+let hardScore = 100;
+mainPageInputBox.addEventListener("input", () => {
+	if (levelChosen === "easy") mainPageTxt.innerText = ` Your Score: ${easyScore}`;
+	else if (levelChosen === "medium")
+		mainPageTxt.innerText = `Your Score: ${mediumScore}`;
+	else if (levelChosen === "hard")
+		mainPageTxt.innerText = `Your Score: ${hardScore}`;
+});
 // game logic
 
 const GameLogic = () => {
 	if (levelChosen === "easy") {
 		console.log("easy");
 		let guessNum = mainPageInputBox.value;
-		if (parseInt(guessNum) === randomNumEasy) {
+		if (parseInt(guessNum) > randomNumEasy) {
+			if (easyScore > 1) {
+				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
+				easyScore--;
+				setTimeout(() => {
+					mainPageTxt.innerText = `Score: ${easyScore}`;
+				}, 1000);
+			} else {
+				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+			}
+		} else if (parseInt(guessNum) < randomNumEasy) {
+			if (easyScore > 1) {
+				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
+				easyScore--;
+				setTimeout(() => {
+					mainPageTxt.innerText = `Score: ${easyScore}`;
+				}, 1000);
+			} else {
+				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+			}
+		} else {
 			mainPageInputBox.value = randomNumEasy;
 			afterWin();
 			backGroundSet();
 			waveChangeSet();
 			startIt();
 			stopIt();
-		} else if (parseInt(guessNum) > randomNumEasy) {
-			mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
-		} else {
-			mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 		}
 		mainPageInputBox.value = "";
 	} else if (levelChosen === "medium") {
@@ -299,30 +328,36 @@ const lvlChange = () => {
 	levelChosen = dropDown.options[dropDown.selectedIndex].value;
 	sessionStorage.setItem("selectedLvl", levelChosen);
 	limitSetter();
+	lvlChangeTxt();
 };
 if (dropDown) dropDown.addEventListener("change", lvlChange);
 
+const lvlChangeTxt = () => {
+	if (mainPageTxt) {
+		mainPageTxt.innerText = `Lvl Changed, ${levelChosen}`;
+		setTimeout(() => {
+			mainPageTxt.innerText = `start guessing...`;
+		}, 1000);
+	}
+};
 /* ----- for Displaying input number in the display box ------- */
 
 const mainPageDisplayBox = document.querySelector(
 	"#mainpage__displaybox-content"
 );
-const mainPageInputBox = document.querySelector("#mainpage__inp");
-
 
 if (mainPageInputBox) {
 	mainPageInputBox.addEventListener("input", () => {
 		if (mainPageInputBox.value === "") {
 			mainPageDisplayBox.innerText = "?";
 		} else if (mainPageDisplayBox.innerText.length < 3)
-				mainPageDisplayBox.innerText = mainPageInputBox.value;
-		
+			mainPageDisplayBox.innerText = mainPageInputBox.value;
 	});
 }
 /* ---- limit the character to input  */
 const limitCharacter = () => {
 	var max_chars = 3;
-	console.log("condition not checked bro");
+
 	$("#mainpage__inp").keydown(function (e) {
 		if ($(this).val().length >= max_chars) {
 			$(this).val($(this).val().substr(0, max_chars));

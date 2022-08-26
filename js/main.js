@@ -309,16 +309,16 @@ const mainPageDisplayBox = document.querySelector(
 );
 const mainPageInputBox = document.querySelector("#mainpage__inp");
 
-mainPageInputBox.onkeyup = mainPageInputBox.onkeypress = function () {
-	console.log("condition not checked");
-	if (mainPageDisplayBox.innerText.length < 3) {
-		mainPageDisplayBox.innerHTML = this.value;
-	}
-	if (mainPageInputBox.value === "") {
-		mainPageDisplayBox.innerText = "?";
-	}
-};
 
+if (mainPageInputBox) {
+	mainPageInputBox.addEventListener("input", () => {
+		if (mainPageInputBox.value === "") {
+			mainPageDisplayBox.innerText = "?";
+		} else if (mainPageDisplayBox.innerText.length < 3)
+				mainPageDisplayBox.innerText = mainPageInputBox.value;
+		
+	});
+}
 /* ---- limit the character to input  */
 const limitCharacter = () => {
 	var max_chars = 3;

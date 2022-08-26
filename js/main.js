@@ -45,21 +45,7 @@ if (mainContentForm) {
 getSessionStorage();
 textAdd();
 
-/* ----- for Displaying input number in the display box ------- */
 
-const mainPageDisplayBox = document.querySelector(
-	"#mainpage__displaybox-content"
-);
-const mainPageInputBox = document.querySelector("#mainpage__inp");
-
-mainPageInputBox.onkeyup = mainPageInputBox.onkeypress = function () {
-	if (mainPageDisplayBox.innerText.length < 3) {
-		mainPageDisplayBox.innerHTML = this.value;
-	}
-	if (mainPageInputBox.value === "") {
-		mainPageDisplayBox.innerText = "?";
-	}
-};
 
 
 /* validating radio */
@@ -316,18 +302,72 @@ const lvlChange = () => {
 };
 if (dropDown) dropDown.addEventListener("change", lvlChange);
 
+
+/* ----- for Displaying input number in the display box ------- */
+
+
+
+const mainPageDisplayBox = document.querySelector(
+	"#mainpage__displaybox-content"
+);
+const mainPageInputBox = document.querySelector("#mainpage__inp");
+
+mainPageInputBox.onkeyup = mainPageInputBox.onkeypress = function () {
+	if(levelChosen === 'easy' || levelChosen === 'medium'){
+		console.log('condition checked');
+		if (mainPageDisplayBox.innerText.length < 2) {
+			mainPageDisplayBox.innerHTML = this.value;
+		}
+	}else{
+		console.log('condition not checked');
+		if (mainPageDisplayBox.innerText.length < 3) {
+			mainPageDisplayBox.innerHTML = this.value;
+		}
+
+	}
+	
+	
+	if (mainPageInputBox.value === "") {
+		mainPageDisplayBox.innerText = "?";
+	}
+	
+};
+
 /* ---- limit the character to input  */
+const limitCharacter = () =>{
+	console.log('condition  checked bro');
 
-var max_chars = 3;
-
-$("#mainpage__inp").keydown(function (e) {
-	if ($(this).val().length >= max_chars) {
-		$(this).val($(this).val().substr(0, max_chars));
-	}
-});
-
-$("#mainpage__inp").keyup(function (e) {
-	if ($(this).val().length >= max_chars) {
-		$(this).val($(this).val().substr(0, max_chars));
-	}
-});
+	if(levelChosen==='easy' ||levelChosen==='medium'){
+		var max_chars = 2;
+	
+	$("#mainpage__inp").keydown(function (e) {
+		if ($(this).val().length >= max_chars) {
+			$(this).val($(this).val().substr(0, max_chars));
+		}
+	});
+	
+	$("#mainpage__inp").keyup(function (e) {
+		if ($(this).val().length >= max_chars) {
+			$(this).val($(this).val().substr(0, max_chars));
+		}
+	});
+	
+}else{
+	
+	var max_chars = 3;
+	console.log('condition not checked bro');
+	$("#mainpage__inp").keydown(function (e) {
+		if ($(this).val().length >= max_chars) {
+			$(this).val($(this).val().substr(0, max_chars));
+		}
+	});
+	
+	$("#mainpage__inp").keyup(function (e) {
+		if ($(this).val().length >= max_chars) {
+			$(this).val($(this).val().substr(0, max_chars));
+		}
+	});
+	
+}
+}
+mainPageInputBox.addEventListener('input',limitCharacter)

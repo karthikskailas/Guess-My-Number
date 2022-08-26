@@ -10,6 +10,7 @@
 </head>
 
 <body>
+
     <div class="popup">
         <div class="popup__box">
             <h2>Note</h2>
@@ -37,7 +38,7 @@
                         </tr>
                     </table>
                 </div>
-                <button class="popup__button" >OK</button>
+                <button class="popup__button active" >OK</button>
             </div>
         </div>
     </div>
@@ -47,14 +48,6 @@
             <form action="main-page.html" id="headerselect__form">
                 <div class="headerselect__form-div">
 
-
-                    <div class="headerselect__formwrapper">
-                        <input type="radio" name="radio" id="easy" value="easy">
-                        <div class="headerselect__formtile">
-                            <label for="easy">EASY</label>
-                        </div>
-                    </div>
-
                     <div class="headerselect__formwrapper ">
                         <input type="radio" name="radio" id="MEDIUM" value="medium">
                         <div class="headerselect__formtile ">
@@ -63,13 +56,21 @@
                     </div>
 
                     <div class="headerselect__formwrapper">
+                        <input type="radio" name="radio" id="easy" value="easy">
+                        <div class="headerselect__formtile">
+                            <label for="easy">EASY</label>
+                        </div>
+                    </div>
+
+
+                    <div class="headerselect__formwrapper">
                         <input type="radio" name="radio" id="HARD" value="hard">
                         <div class="headerselect__formtile">
                             <label for="HARD">HARD</label>
                         </div>
                     </div>
                 </div>
-                <input type="image" name="submit" class="headerselect__submitbtn" src="icon/buttons/arrow.svg"
+                <input type="image" name="submit" class="headerselect__submitbtn active" src="icon/buttons/arrow.svg"
                     alt="button">
 
             </form>
@@ -80,7 +81,7 @@
         <img src="img/Welcome-Page/waves/Wave-Down-Mob.svg" alt="wave" class="footer__img2">
     </footer>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/main.js"></script>
 
 </body>

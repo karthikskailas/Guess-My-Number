@@ -1,16 +1,8 @@
 let userId;
-let option ;
-const mainContentForm = document.querySelector("#maincontent__form"); // Selecting form from maincontent
-const userInput = document.querySelector("#userId"); // Selecting input inside the form
-const mainPageDisplayBox = document.querySelector(
-	"#mainpage__displaybox-content"
-);
-const mainPageInputBox = document.querySelector("#mainpage__inp");
+let option;
+let levelChosen;
 
 const mainPageForm = document.querySelector("#mainpage__input-form");
-
-const waveFooterDefault = document.querySelector("#footer__image");
-const waveFooterVictory = document.querySelector("#footer__images");
 
 /* ---------- Set Data and Get data to session Storage --------- */
 
@@ -58,16 +50,17 @@ textAdd();
 const mainPageDisplayBox = document.querySelector(
 	"#mainpage__displaybox-content"
 );
+const mainPageInputBox = document.querySelector("#mainpage__inp");
 
-if (mainPageInputBox) {
-	mainPageInputBox.addEventListener("input", () => {
-		if (mainPageInputBox.value === "") {
-			mainPageDisplayBox.innerText = "?";
-		} else {
-			mainPageDisplayBox.innerText = mainPageInputBox.value;
-		}
-	});
-}
+mainPageInputBox.onkeyup = mainPageInputBox.onkeypress = function () {
+	if (mainPageDisplayBox.innerText.length < 3) {
+		mainPageDisplayBox.innerHTML = this.value;
+	}
+	if (mainPageInputBox.value === "") {
+		mainPageDisplayBox.innerText = "?";
+	}
+};
+
 
 /* validating radio */
 
@@ -107,43 +100,20 @@ const setSessionStore = () => {
 const getSessionStore = () => {
 	levelChosen = sessionStorage.getItem("selectedLvl");
 };
+getSessionStore();
 
 /* -------------------- Mode ------------------- */
 
-const randomNumEasy = Math.floor(Math.random() * 20) + 1;
-const randomNumMedium = Math.floor(Math.random() * 50) + 1;
-const randomNumHard = Math.floor(Math.random() * 100) + 1;
-console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`)
-getSessionStore();
-/* ----------- random number generate ---------------- */
 let randomNumEasy = Math.floor(Math.random() * 20) + 1;
-console.log(randomNumEasy);
+let randomNumMedium = Math.floor(Math.random() * 50) + 1;
+let randomNumHard = Math.floor(Math.random() * 100) + 1;
+console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`);
+/* ----------- random number generate ---------------- */
 const afterWin = () => {
 	mainPageTxt.innerText = `you win the game 🎉😂, ${userId}`;
 	mainPageInputBox.setAttribute("onkeydown", "return false");
 	mainPageInputBox.style.caretColor = "transparent";
 };
-// game logic
-const gameLogic = () => {
-	let guessNum = mainPageInputBox.value;
-	if (parseInt(guessNum) === randomNumEasy) {
-		afterWin();
-		backGroundSet();
-		waveChangeSet();
-		startIt();
-		stopIt();
-	} else if (parseInt(guessNum) > randomNumEasy) {
-		mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
-	} else {
-		mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
-	}
-	mainPageInputBox.value = "";
-};
-// to run the game logic when submit
-mainPageForm.addEventListener("submit", (e) => {
-	e.preventDefault();
-	gameLogic();
-});
 
 // game logic
 
@@ -152,7 +122,11 @@ const GameLogic = () => {
 		console.log("easy");
 		let guessNum = mainPageInputBox.value;
 		if (parseInt(guessNum) === randomNumEasy) {
-			console.log(`monusa kandupidichatta22`);
+			afterWin();
+			backGroundSet();
+			waveChangeSet();
+			startIt();
+			stopIt();
 		} else if (parseInt(guessNum) > randomNumEasy) {
 			mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 		} else {
@@ -165,7 +139,11 @@ const GameLogic = () => {
 		if (parseInt(guessNum) > randomNumMedium) {
 			mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 		} else if (parseInt(guessNum) === randomNumMedium) {
-			console.log(`monusa kandupidichatta11`);
+			afterWin();
+			backGroundSet();
+			waveChangeSet();
+			startIt();
+			stopIt();
 		} else {
 			mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 		}
@@ -176,7 +154,11 @@ const GameLogic = () => {
 		if (parseInt(guessNum) > randomNumHard) {
 			mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 		} else if (parseInt(guessNum) === randomNumHard) {
-			console.log(`monusa kandupidichatta22`);
+			afterWin();
+			backGroundSet();
+			waveChangeSet();
+			startIt();
+			stopIt();
 		} else {
 			mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 		}
@@ -213,21 +195,33 @@ window.addEventListener("load", () => {
 		if (popUp) popUp.classList.add("--active");
 	}, 200);
 });
-if(popUpBtn)popUpBtn.addEventListener("click", btnClose);
+if (popUpBtn) popUpBtn.addEventListener("click", btnClose);
+
 /* ----------------- Restart button ------------------------ */
 
 const restartButton = document.querySelector("#headermainpage__restartbtns");
 
+const restartLvl = () => {
+	if (levelChosen === "easy") {
+		randomNumEasy = Math.floor(Math.random() * 20) + 1;
+		console.log(`easy ${randomNumEasy}`);
+	} else if (levelChosen === "medium") {
+		randomNumMedium = Math.floor(Math.random() * 50) + 1;
+		console.log(`medium ${randomNumMedium}`);
+	} else {
+		randomNumHard = Math.floor(Math.random() * 100) + 1;
+		console.log(`hard ${randomNumHard}`);
+	}
+};
 // to restart the game
 const restartBtn = () => {
 	mainPageTxt.innerText = `start guessing...`;
 	mainPageInputBox.removeAttribute("onkeydown");
 	mainPageInputBox.style.caretColor = "white";
 	mainPageDisplayBox.innerText = "?";
-	randomNumEasy = Math.floor(Math.random() * 20) + 1;
+	restartLvl();
 	backGroundRevert();
 	waveChangeRevert();
-	console.log(randomNumEasy);
 };
 
 // to check if the restartButton is exists on the page
@@ -236,6 +230,13 @@ if (restartButton) {
 	restartButton.addEventListener("click", restartBtn);
 }
 
+/* ------------------- Victory colorSet --------------- */
+
+const waveFooterDefault = document.querySelector("#footer__image");
+const waveFooterDefaultMob = document.querySelector("#footer__images-mob");
+const waveFooterVictory = document.querySelector("#footer__images");
+const waveFooterVictoryMob = document.querySelector("#footer__image-mob");
+
 // Get the root element
 let root = document.querySelector(":root");
 
@@ -243,6 +244,7 @@ const backGroundSet = () => {
 	// Set the value of variable to another value in this case primary-clr change to set color
 	root.style.setProperty("--primary-clr", "#6BC779");
 };
+
 const backGroundRevert = () => {
 	// reverting the change of BackGroundSet
 	root.style.setProperty("--primary-clr", "#335F70");
@@ -251,12 +253,17 @@ const backGroundRevert = () => {
 // to display hidden green waves img and hide blue wave
 const waveChangeSet = () => {
 	waveFooterDefault.classList.add("--display");
+	waveFooterDefaultMob.classList.add("--display");
 	waveFooterVictory.classList.remove("--display");
+	waveFooterVictoryMob.classList.remove("--display");
 };
+
 // to hidden green waves img and display blue wave
 const waveChangeRevert = () => {
 	waveFooterVictory.classList.add("--display");
 	waveFooterDefault.classList.remove("--display");
+	waveFooterVictoryMob.classList.add("--display");
+	waveFooterDefaultMob.classList.remove("--display");
 };
 
 /* -------------- Confetti effect ---------------------- */
@@ -271,11 +278,56 @@ const startIt = () => {
 const stopIt = () => {
 	setTimeout(function () {
 		confetti.stop();
-	}, 5000);
+	}, 3000);
 };
 
 // to fadeOut the loading screen on load
 
 $(window).on("load", function () {
 	$(".loader-wrapper").fadeOut("slow");
+});
+
+// to preselect the user selected level in the dropdown
+
+$(document).ready(function () {
+	$("#headermainpage__dropmenu-select").val(levelChosen);
+	limitSetter();
+});
+
+/* ------------------ InGame Level Change ------------------ */
+
+const dropDown = document.querySelector("#headermainpage__dropmenu-select");
+const limitSetter = () => {
+	if (levelChosen === "easy") {
+		mainPageInputBox.setAttribute("max", "20");
+		mainPageInputBox.value = "";
+	} else if (levelChosen === "medium") {
+		mainPageInputBox.setAttribute("max", "50");
+		mainPageInputBox.value = "";
+	} else {
+		mainPageInputBox.setAttribute("max", "100");
+		mainPageInputBox.value = "";
+	}
+};
+const lvlChange = () => {
+	levelChosen = dropDown.options[dropDown.selectedIndex].value;
+	sessionStorage.setItem("selectedLvl", levelChosen);
+	limitSetter();
+};
+if (dropDown) dropDown.addEventListener("change", lvlChange);
+
+/* ---- limit the character to input  */
+
+var max_chars = 3;
+
+$("#mainpage__inp").keydown(function (e) {
+	if ($(this).val().length >= max_chars) {
+		$(this).val($(this).val().substr(0, max_chars));
+	}
+});
+
+$("#mainpage__inp").keyup(function (e) {
+	if ($(this).val().length >= max_chars) {
+		$(this).val($(this).val().substr(0, max_chars));
+	}
 });

@@ -114,17 +114,17 @@ const inputScore = () => {
 	else if (levelChosen === "hard")
 		mainPageTxt.innerText = `Your Score: ${hardScore}`;
 };
-let guessNum;
 let easyScore = 20;
 let mediumScore = 50;
 let hardScore = 100;
 // game logic
 
 const GameLogic = () => {
-	guessNum = mainPageInputBox.value;
 	if (levelChosen === "easy") {
-		;
+		console.log("easy");
+		let guessNum = mainPageInputBox.value;
 		if (parseInt(guessNum) > randomNumEasy) {
+			mainPageInputBox.value = "";
 			if (easyScore > 1) {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				easyScore--;
@@ -138,6 +138,7 @@ const GameLogic = () => {
 				backGroundSetLoss();
 			}
 		} else if (parseInt(guessNum) < randomNumEasy) {
+			mainPageInputBox.value = "";
 			if (easyScore > 1) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 				easyScore--;
@@ -160,11 +161,12 @@ const GameLogic = () => {
 			startIt();
 			stopIt();
 		}
-		mainPageInputBox.value = "";
+		
 	} else if (levelChosen === "medium") {
 		console.log("medium");
 		let guessNum = mainPageInputBox.value;
 		if (parseInt(guessNum) > randomNumMedium) {
+			mainPageInputBox.value = "";
 			if (mediumScore > 1) {
 				console.log("medium222");
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
@@ -178,6 +180,7 @@ const GameLogic = () => {
 				backGroundSetLoss();
 			}
 		} else if (parseInt(guessNum) < randomNumMedium) {
+			mainPageInputBox.value = "";
 			if (mediumScore > 1) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 				mediumScore -= 2;
@@ -195,11 +198,12 @@ const GameLogic = () => {
 			startIt();
 			stopIt();
 		}
-		mainPageInputBox.value = "";
+		
 	} else {
 		console.log("hard");
 		let guessNum = mainPageInputBox.value;
 		if (parseInt(guessNum) > randomNumHard) {
+			mainPageInputBox.value = "";
 			if (hardScore > 1) {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				hardScore -= 4;
@@ -210,6 +214,7 @@ const GameLogic = () => {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
 			}
 		} else if (parseInt(guessNum) < randomNumHard) {
+			mainPageInputBox.value = "";
 			if (hardScore > 1) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 				hardScore -= 4;
@@ -227,7 +232,6 @@ const GameLogic = () => {
 			startIt();
 			stopIt();
 		}
-		mainPageInputBox.value = "";
 	}
 };
 
@@ -283,6 +287,7 @@ const restartLvl = () => {
 };
 // to restart the game
 const restartBtn = () => {
+	mainPageInputBox.value = "";
 	mainPageTxt.innerText = `start guessing...`;
 	mainPageInputBox.removeAttribute("onkeydown");
 	mainPageInputBox.style.caretColor = "white";
@@ -401,39 +406,13 @@ const lvlChangeTxt = () => {
 const mainPageDisplayBox = document.querySelector(
 	"#mainpage__displaybox-content"
 );
-// mainPageInputBox.onkeyup = mainPageInputBox.onkeypress = function () {
-// 	mainPageDisplayBox.innerHTML = this.value.slice(0, 3);
-// 	if (levelChosen === "easy") {
-// 		if (guessNum !== randomNumEasy) {
-// 			console.log(`easy aa myre`);
-// 			if (mainPageInputBox.value.length === 0) {
-// 				console.log(` inside easy aa myre`);
-// 				mainPageDisplayBox.innerText = "?";
-// 			}
-// 		}
-// 	} else if (levelChosen === "medium") {
-// 		console.log(`medium aa myre`);
-// 		if (guessNum !== randomNumMedium) {
-// 			console.log(`inside medium aa myre`);
-// 			if (mainPageInputBox.value.length === 0) {
-// 				mainPageDisplayBox.innerText = "?";
-// 			}
-// 		}
-// 	} else if (levelChosen === "hard") {
-// 		console.log(`hard aa myre`);
-// 		if (guessNum !== randomNumHard) {
-// 			console.log(` inside hard aa myre`);
-// 			if (mainPageInputBox.value.length === 0) {
-// 				mainPageDisplayBox.innerText = "?";
-// 			}
-// 		}
-// 	}
-// 	console.log(guessNum + "myre ethiaa");
-// };
+mainPageInputBox.onkeyup = mainPageInputBox.onkeypress = function () {
+	mainPageDisplayBox.innerHTML = this.value.slice(0, 3);
 
-
-
-
+	if (mainPageInputBox.value.length === 0) {
+		mainPageDisplayBox.innerText = "?";
+	}
+};
 /* ---- limit the character to input  */
 const limitCharacter = () => {
 	var max_chars = 3;

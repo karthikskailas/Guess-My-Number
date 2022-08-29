@@ -33,6 +33,14 @@
 
 }
 
+.finishdropdown{
+    display: flex;
+    justify-content: center;
+width: 100%;
+margin-bottom: 1.5rem;
+  
+}
+
 body {
     min-height: 100vh;
     line-height: 1.1;
@@ -135,7 +143,7 @@ body {
 }
 
 .--display {
-    display: none;
+    visibility: hidden;
 }
 
 /*----------------------------- header styling --------------------*/
@@ -165,10 +173,11 @@ body {
 
 .maincontent {
     display: flex;
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 1rem;
     flex-direction: column;
     align-items: center;
+    letter-spacing: 6px;
 
 }
 
@@ -217,11 +226,12 @@ input::placeholder {
 footer {
     /* #2 to make the footer sticky to the bottom */
     margin-top: auto;
-
 }
 
 .footer__img,
 .footer__img2 {
+
+    margin-bottom: -9px;
     margin-top: auto;
 }
 
@@ -383,25 +393,35 @@ footer {
 
 .headermainpage {
     margin-block-start: 1.5rem;
+    /* padding-left: 6rem; */
     display: flex;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-evenly;
 
 }
-
+.headermainpage__logo2{
+    font-size: 4rem;
+        text-align: center;
+        letter-spacing: 5px;
+}
 .headermainpage__logo {
     font-size: 4rem;
     text-align: center;
-    margin-left: 12rem;
+    margin-left:8rem;
+    letter-spacing: 5px;
 }
 
 .headermainpage__wrapper {
     display: flex;
     margin-top: 1.3rem;
+    
 }
 
 .headermainpage__restartbtn {
     margin-block-end: 1.5rem;
+    margin-inline: 1rem;
     width: 2rem;
+
 }
 
 .headermainpage__menubar-icon {
@@ -415,6 +435,9 @@ footer {
     font-size: 1.563rem;
 }
 
+.-margin{
+margin-top: 2rem;
+}
 .headermainpage__dropmenu {
     margin-inline: 1rem;
     padding: .2em 1em;
@@ -436,14 +459,15 @@ footer {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    width: 100%;
 
 }
 
 /* ------------------------- styling display box ------------------- */
 
-.mainpage__textwrapper {
+/* .mainpage__textwrapper {
     margin-right: 2rem;
-}
+} */
 
 
 .mainpage__displaybox {
@@ -458,15 +482,17 @@ footer {
     text-align: center;
     max-width: 286px;
     max-height: 191px;
+    width: 440px;
 }
 
 /* ---------------- styling text,input and button ---------------------*/
 
 .mainpage__text {
     text-align: center;
+    /* display: block; */
     margin-block: 1.5rem;
     letter-spacing: 3px;
-    margin-left: 1.6rem;
+        margin-left: 1.435rem;
 }
 
 .mainpage__input,
@@ -489,6 +515,7 @@ footer {
     color: white;
     font-family: var(--font-family);
     margin-bottom: 1.9rem;
+    margin-left: .5rem;
     background-color: var(--primary-clr);
 
 }
@@ -512,8 +539,32 @@ input::-webkit-inner-spin-button {
 
 }
 
+.finishsection {
+    display: flex;
+    justify-content: center;
+width:100%;
+
+}
+
+.finishsection__restartbtn {
+    width: 140px;
+
+}
+
+.finishsection__text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.7rem;
+    margin-right: 50px;
+    margin-top: 8px;
+}
+
+
+
 .active:hover {
-    opacity: .9;
+    opacity: .7;
+    transition: opacity .2s ease;
     cursor: pointer;
 
 }
@@ -541,6 +592,7 @@ input::-webkit-inner-spin-button {
     }
 
     .headermainpage__logo {
+
         font-size: 3rem;
         text-align: center;
         margin-left: 4rem;
@@ -642,6 +694,7 @@ input::-webkit-inner-spin-button {
         text-align: center;
         max-width: 266px;
         max-height: 185px;
+        width: 440px;
     }
 
     .headermainpage__menubar-icon {
@@ -702,6 +755,7 @@ input::-webkit-inner-spin-button {
         color: white;
         font-family: var(--font-family);
         margin-bottom: 1.9rem;
+       
     }
 
 

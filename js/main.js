@@ -154,6 +154,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+					FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
@@ -168,7 +169,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-restructure
-
+	FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
@@ -196,6 +197,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+					FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
@@ -212,7 +214,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
-
+	FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
@@ -240,6 +242,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+					FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
@@ -253,7 +256,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-structure
-
+	FinalScore.innerText = `Score :0`;
 				afterLoss();
 				backGroundSetLoss();
 			}

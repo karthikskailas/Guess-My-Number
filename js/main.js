@@ -96,6 +96,7 @@ console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`);
 const mainPageInputBox = document.querySelector("#mainpage__inp");
 const afterGame = document.querySelector(".finish");
 const afterGameElement = document.querySelectorAll(".afterwin");
+let FinalScore = document.querySelector(".finishsection__text-score");
 
 const afterWin = () => {
 	for (hide of afterGameElement) {
@@ -167,6 +168,7 @@ const GameLogic = () => {
 				backGroundSetLoss();
 			}
 		} else {
+			FinalScore.innerText=`Score : ${easyScore}`
 			mainPageInputBox.value = randomNumEasy;
 			afterWin();
 			backGroundSet();
@@ -211,6 +213,7 @@ const GameLogic = () => {
 			}
 		} else {
 			mainPageInputBox.value = randomNumMedium;
+			FinalScore.innerText=`Score : ${mediumScore}`
 			afterWin();
 			backGroundSet();
 			waveChangeSet();
@@ -250,8 +253,9 @@ const GameLogic = () => {
 				backGroundSetLoss();
 			}
 		} else {
-			afterWin();
+			FinalScore.innerText=`Score : ${hardScore}`
 			mainPageInputBox.value = randomNumHard;
+			afterWin();
 			backGroundSet();
 			waveChangeSet();
 			startIt();

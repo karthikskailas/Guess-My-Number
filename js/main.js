@@ -94,13 +94,21 @@ console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`);
 
 /* ----------- random number generate ---------------- */
 const mainPageInputBox = document.querySelector("#mainpage__inp");
+const afterGame = document.querySelector(".finishsection");
+const afterGameElement = document.querySelectorAll(".afterwin");
 
 const afterWin = () => {
+	for (hide of afterGameElement) {
+		hide.classList.add("--display");
+	}
 	mainPageTxt.innerText = `you win the game 🎉😂, ${userId}`;
 	mainPageInputBox.setAttribute("onkeydown", "return false");
 	mainPageInputBox.style.caretColor = "transparent";
+	afterGame.classList.remove("--display");
+	logo();
 };
 const afterLoss = () => {
+	waveChangeLoss();
 	mainPageTxt.innerText = `you Lost 😞, ${userId}`;
 	mainPageInputBox.setAttribute("onkeydown", "return false");
 	mainPageInputBox.style.caretColor = "transparent";
@@ -114,41 +122,46 @@ const inputScore = () => {
 	else if (levelChosen === "hard")
 		mainPageTxt.innerText = `Your Score: ${hardScore}`;
 };
+// FIXME-CHANGE THE VALUES OF THE SCORE
 let easyScore = 20;
 let mediumScore = 50;
 let hardScore = 100;
+/* _____________________________________ HIGH-SCORE ___________________________ */
+let highScore = 0;
+let newHighScore = 0;
+
 // game logic
 
 const GameLogic = () => {
 	if (levelChosen === "easy") {
 		console.log("easy");
 		let guessNum = mainPageInputBox.value;
+
 		if (parseInt(guessNum) > randomNumEasy) {
 			mainPageInputBox.value = "";
 			if (easyScore > 1) {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
-				easyScore--;
+				easyScore -= 1;
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${easyScore}`;
-				}, 1000);
+				}, 500);
+				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
-				mainPageDisplayBox.value = randomNumEasy;
 				afterLoss();
 				backGroundSetLoss();
 			}
 		} else if (parseInt(guessNum) < randomNumEasy) {
-			mainPageInputBox.value = "";
 			if (easyScore > 1) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
-				easyScore--;
-				console.log(easyScore);
-
+				easyScore -= 1;
+				console.log(mediumScore);
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${easyScore}`;
-				}, 1000);
+				}, 500);
+				mainPageInputBox.value = "";
 			} else {
-				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+				// TODO-restructure
 
 				afterLoss();
 				backGroundSetLoss();
@@ -161,34 +174,38 @@ const GameLogic = () => {
 			startIt();
 			stopIt();
 		}
-		
 	} else if (levelChosen === "medium") {
-		console.log("medium");
 		let guessNum = mainPageInputBox.value;
 		if (parseInt(guessNum) > randomNumMedium) {
-			mainPageInputBox.value = "";
-			if (mediumScore > 1) {
-				console.log("medium222");
+			if (mediumScore > 2) {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				mediumScore -= 2;
-
+				console.log(mediumScore);
 				setTimeout(() => {
+					console.log(`njan epo onum kudi work ayi katto `);
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
-				}, 1000);
+				}, 500);
+				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+				afterLoss();
 				backGroundSetLoss();
 			}
 		} else if (parseInt(guessNum) < randomNumMedium) {
-			mainPageInputBox.value = "";
-			if (mediumScore > 1) {
+			if (mediumScore > 2) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 				mediumScore -= 2;
+				console.log(mediumScore);
 				setTimeout(() => {
+					console.log(`njan epo onum kudi work ayi katto last`);
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
-				}, 1000);
+				}, 500);
+				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+
+				afterLoss();
+				backGroundSetLoss();
 			}
 		} else {
 			mainPageInputBox.value = randomNumMedium;
@@ -198,31 +215,36 @@ const GameLogic = () => {
 			startIt();
 			stopIt();
 		}
-		
 	} else {
 		console.log("hard");
 		let guessNum = mainPageInputBox.value;
 		if (parseInt(guessNum) > randomNumHard) {
-			mainPageInputBox.value = "";
-			if (hardScore > 1) {
+			if (hardScore > 4) {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				hardScore -= 4;
 				setTimeout(() => {
+					console.log(`njan epo onum kudi work ayi katto `);
 					mainPageTxt.innerText = `Score: ${hardScore}`;
-				}, 1000);
+				}, 500);
+				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+				afterLoss();
+				backGroundSetLoss();
 			}
 		} else if (parseInt(guessNum) < randomNumHard) {
-			mainPageInputBox.value = "";
-			if (hardScore > 1) {
+			if (hardScore > 4) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 				hardScore -= 4;
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${hardScore}`;
-				}, 1000);
+				}, 500);
+				mainPageInputBox.value = "";
 			} else {
-				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
+				// TODO-structure
+
+				afterLoss();
+				backGroundSetLoss();
 			}
 		} else {
 			afterWin();
@@ -268,9 +290,10 @@ if (popUpBtn) popUpBtn.addEventListener("click", btnClose);
 
 /* ----------------- Restart button ------------------------ */
 
-const restartButton = document.querySelector("#headermainpage__restartbtns");
+const restartButton = document.querySelectorAll(".restartbtns");
 
 const restartLvl = () => {
+	// FIXME-CHANGE THE VALUE
 	easyScore = 20;
 	mediumScore = 50;
 	hardScore = 100;
@@ -284,6 +307,17 @@ const restartLvl = () => {
 		randomNumHard = Math.floor(Math.random() * 100) + 1;
 		console.log(`hard ${randomNumHard}`);
 	}
+	/* ------------------------- for show maincontent input and hide finish section ---------------------------*/
+	for (show of afterGameElement) {
+		show.classList.remove("--display");
+	}
+	afterGame.classList.add("--display");
+};
+const logoRevert = () => {
+	headerLogo.classList.remove("headermainpage__logo2");
+	headerLogo.classList.add("headermainpage__logo");
+	header.classList.add("headermainpage");
+	header.classList.remove("-margin");
 };
 // to restart the game
 const restartBtn = () => {
@@ -295,12 +329,14 @@ const restartBtn = () => {
 	restartLvl();
 	backGroundRevert();
 	waveChangeRevert();
+	logoRevert();
 };
 
 // to check if the restartButton is exists on the page
 
 if (restartButton) {
-	restartButton.addEventListener("click", restartBtn);
+	for (restart of restartButton)
+		restart.addEventListener("click", restartBtn);
 }
 
 /* ------------------- Victory colorSet --------------- */
@@ -309,6 +345,9 @@ const waveFooterDefault = document.querySelector("#footer__image");
 const waveFooterDefaultMob = document.querySelector("#footer__images-mob");
 const waveFooterVictory = document.querySelector("#footer__images");
 const waveFooterVictoryMob = document.querySelector("#footer__image-mob");
+const waveFooterLoss = document.querySelector("#footer__image-red");
+const headerLogo = document.querySelector("#headermainpage__logos");
+const header = document.querySelector("#headermainpages");
 
 // Get the root element
 let root = document.querySelector(":root");
@@ -321,11 +360,26 @@ const backGroundSet = () => {
 const backGroundSetLoss = () => {
 	root.style.setProperty("--primary-clr", "#FF474A");
 };
+
+const logo = () => {
+	headerLogo.classList.add("headermainpage__logo2");
+
+	headerLogo.classList.remove("headermainpage__logo");
+	header.classList.remove("headermainpage");
+	header.classList.add("-margin");
+};
 const backGroundRevert = () => {
 	// reverting the change of BackGroundSet
 	root.style.setProperty("--primary-clr", "#335F70");
 };
-
+const waveChangeLoss = () => {
+	waveFooterDefault.classList.add("--display");
+	waveFooterLoss.classList.remove("--display");
+};
+const waveChangeLossRevert = () => {
+	waveFooterLoss.classList.add("--display");
+	waveFooterDefault.classList.remove("--display");
+};
 // to display hidden green waves img and hide blue wave
 const waveChangeSet = () => {
 	waveFooterDefault.classList.add("--display");
@@ -373,6 +427,23 @@ $(document).ready(function () {
 /* ------------------ InGame Level Change ------------------ */
 
 const dropDown = document.querySelector("#headermainpage__dropmenu-select");
+const dropDown2 = document.querySelector("#headermainpage__dropmenu-select2");
+/* --------------- To change the level of the main dropdown on changing the finishSection drop --------------*/
+dropDown.addEventListener(
+	"change",
+	function () {
+		dropDown2.selectedIndex = dropDown.selectedIndex;
+	},
+	false
+);
+dropDown2.addEventListener(
+	"change",
+	function () {
+		dropDown.selectedIndex = dropDown2.selectedIndex;
+	},
+	false
+);
+/* ------------------- to change the limit according to the selected lvl ------------------------------ */
 const limitSetter = () => {
 	if (levelChosen === "easy") {
 		mainPageInputBox.setAttribute("max", "20");
@@ -391,11 +462,20 @@ const lvlChange = () => {
 	limitSetter();
 	lvlChangeTxt();
 };
+const lvlChangeOnFinish = () => {
+	levelChosen = dropDown2.options[dropDown2.selectedIndex].value;
+	sessionStorage.setItem("selectedLvl", levelChosen);
+	limitSetter();
+	lvlChangeTxt();
+};
+
 if (dropDown) dropDown.addEventListener("change", lvlChange);
+if (dropDown2) dropDown2.addEventListener("change", lvlChangeOnFinish);
 
 const lvlChangeTxt = () => {
 	if (mainPageTxt) {
-		mainPageTxt.innerText = `Lvl Changed, ${levelChosen}`;
+		mainPageTxt.innerText = `Lvl Changed to ${levelChosen}`;
+		mainPageDisplayBox.innerText = "?";
 		setTimeout(() => {
 			mainPageTxt.innerText = `start guessing...`;
 		}, 1000);
@@ -430,5 +510,4 @@ const limitCharacter = () => {
 	});
 };
 mainPageInputBox.addEventListener("input", limitCharacter);
-
 mainPageInputBox.addEventListener("input", inputScore);

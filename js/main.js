@@ -94,7 +94,7 @@ console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`);
 
 /* ----------- random number generate ---------------- */
 const mainPageInputBox = document.querySelector("#mainpage__inp");
-const afterGame = document.querySelector(".finishsection");
+const afterGame = document.querySelector(".finish");
 const afterGameElement = document.querySelectorAll(".afterwin");
 
 const afterWin = () => {
@@ -182,6 +182,7 @@ const GameLogic = () => {
 				mediumScore -= 2;
 				console.log(mediumScore);
 				setTimeout(() => {
+					// TODO- REMOVE THIS CONSOLE LOG
 					console.log(`njan epo onum kudi work ayi katto `);
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
 				}, 500);
@@ -197,6 +198,7 @@ const GameLogic = () => {
 				mediumScore -= 2;
 				console.log(mediumScore);
 				setTimeout(() => {
+					// TODO- REMOVE THIS CONSOLE LOG
 					console.log(`njan epo onum kudi work ayi katto last`);
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
 				}, 500);
@@ -223,6 +225,7 @@ const GameLogic = () => {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				hardScore -= 4;
 				setTimeout(() => {
+					// TODO- REMOVE THIS CONSOLE LOG
 					console.log(`njan epo onum kudi work ayi katto `);
 					mainPageTxt.innerText = `Score: ${hardScore}`;
 				}, 500);
@@ -323,6 +326,16 @@ const logoRevert = () => {
 const restartBtn = () => {
 	mainPageInputBox.value = "";
 	mainPageTxt.innerText = `start guessing...`;
+	mainPageInputBox.removeAttribute("onkeydown");
+	mainPageInputBox.style.caretColor = "white";
+	mainPageDisplayBox.innerText = "?";
+	restartLvl();
+	backGroundRevert();
+	waveChangeRevert();
+	logoRevert();
+};
+const restartBtnOnFinish = () => {
+	mainPageInputBox.value = "";
 	mainPageInputBox.removeAttribute("onkeydown");
 	mainPageInputBox.style.caretColor = "white";
 	mainPageDisplayBox.innerText = "?";
@@ -433,13 +446,23 @@ dropDown.addEventListener(
 	"change",
 	function () {
 		dropDown2.selectedIndex = dropDown.selectedIndex;
+		limitSetter();
+		mainPageTxt.innerText= `restating now`;
 	},
 	false
-);
-dropDown2.addEventListener(
-	"change",
-	function () {
-		dropDown.selectedIndex = dropDown2.selectedIndex;
+	);
+	dropDown2.addEventListener(
+		"change",
+		function () {
+			dropDown.selectedIndex = dropDown2.selectedIndex;
+			
+		
+			limitSetter();
+			
+			setTimeout(() => {
+				
+				restartBtnOnFinish();
+			}, 1500);
 	},
 	false
 );
@@ -465,8 +488,9 @@ const lvlChange = () => {
 const lvlChangeOnFinish = () => {
 	levelChosen = dropDown2.options[dropDown2.selectedIndex].value;
 	sessionStorage.setItem("selectedLvl", levelChosen);
+	lvlChangeTxtOnFinish();
 	limitSetter();
-	lvlChangeTxt();
+	
 };
 
 if (dropDown) dropDown.addEventListener("change", lvlChange);
@@ -479,6 +503,19 @@ const lvlChangeTxt = () => {
 		setTimeout(() => {
 			mainPageTxt.innerText = `start guessing...`;
 		}, 1000);
+	}
+};
+const lvlChangeTxtOnFinish = () => {
+	if (mainPageTxt) {
+		mainPageTxt.innerText = `Lvl Changed to ${levelChosen}`;
+
+		mainPageDisplayBox.innerText = "?";
+		setTimeout(() => {
+			mainPageTxt.innerText = `restarting now`;
+		}, 500);
+		setTimeout(() => {
+			mainPageTxt.innerText = `start guessing...`;
+		}, 1900);
 	}
 };
 /* ----- for Displaying input number in the display box ------- */

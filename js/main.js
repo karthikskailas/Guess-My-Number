@@ -96,7 +96,6 @@ console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`);
 const mainPageInputBox = document.querySelector("#mainpage__inp");
 const afterGame = document.querySelector(".finish");
 const afterGameElement = document.querySelectorAll(".afterwin");
-let FinalScore = document.querySelector(".finishsection__text-score");
 
 const afterWin = () => {
 	for (hide of afterGameElement) {
@@ -133,6 +132,8 @@ let easyScore = 20;
 let mediumScore = 50;
 let hardScore = 100;
 /* _____________________________________ HIGH-SCORE ___________________________ */
+let FinalScore = document.querySelector(".finishsection__text-score");
+let finalHighScore = document.querySelector(".finishsection__text-highscore");
 let highScore = 0;
 let newHighScore = 0;
 
@@ -154,7 +155,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
-					FinalScore.innerText = `Score : 0`;
+				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
@@ -169,11 +170,15 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-restructure
-	FinalScore.innerText = `Score : 0`;
+				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
 		} else {
+			if (easyScore > easyHighScore) {
+				easyHighScore = easyScore;
+				finalHighScore.innerText = `HighScore : ${easyHighScore}`;
+			}
 			FinalScore.innerText = `Score : ${easyScore}`;
 			mainPageInputBox.value = randomNumEasy;
 			afterWin();
@@ -197,7 +202,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
-					FinalScore.innerText = `Score : 0`;
+				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
@@ -214,11 +219,15 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
-	FinalScore.innerText = `Score : 0`;
+				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
 		} else {
+			if (mediumScore > mediumHighScore) {
+				mediumHighScore = mediumScore;
+				finalHighScore.innerText = `HighScore : ${mediumScore}`;
+			}
 			mainPageInputBox.value = randomNumMedium;
 			FinalScore.innerText = `Score : ${mediumScore}`;
 			afterWin();
@@ -242,7 +251,7 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
-					FinalScore.innerText = `Score : 0`;
+				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
@@ -256,11 +265,16 @@ const GameLogic = () => {
 				mainPageInputBox.value = "";
 			} else {
 				// TODO-structure
-	FinalScore.innerText = `Score :0`;
+				FinalScore.innerText = `Score :0`;
 				afterLoss();
 				backGroundSetLoss();
 			}
 		} else {
+			if (hardScore > hardHighScore) {
+				hardHighScore = hardScore;
+				finalHighScore.innerText = `HighScore : ${hardScore}`;
+			}
+
 			FinalScore.innerText = `Score : ${hardScore}`;
 			mainPageInputBox.value = randomNumHard;
 			afterWin();
@@ -291,12 +305,18 @@ if (mainPageForm) {
 /* -------------------- Popup --------------------- */
 
 const popUp = document.querySelector(".popup");
+const info = document.querySelector("#info__img");
 const popUpBtn = document.querySelector(".popup__button");
 
 const btnClose = () => {
 	popUp.classList.remove("--active");
 };
 window.addEventListener("load", () => {
+	setTimeout(() => {
+		if (popUp) popUp.classList.add("--active");
+	}, 500);
+});
+info.addEventListener("click", () => {
 	setTimeout(() => {
 		if (popUp) popUp.classList.add("--active");
 	}, 200);
@@ -557,3 +577,7 @@ const limitCharacter = () => {
 };
 mainPageInputBox.addEventListener("input", limitCharacter);
 mainPageInputBox.addEventListener("input", inputScore);
+
+let easyHighScore = 0;
+let mediumHighScore = 0;
+let hardHighScore = 0;

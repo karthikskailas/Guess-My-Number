@@ -109,10 +109,15 @@ const afterWin = () => {
 	logo();
 };
 const afterLoss = () => {
+	logo();
+	for (hide of afterGameElement) {
+		hide.classList.add("--display");
+	}
 	waveChangeLoss();
 	mainPageTxt.innerText = `you Lost 😞, ${userId}`;
 	mainPageInputBox.setAttribute("onkeydown", "return false");
 	mainPageInputBox.style.caretColor = "transparent";
+	afterGame.classList.remove("--display");
 };
 
 const inputScore = () => {
@@ -168,7 +173,7 @@ const GameLogic = () => {
 				backGroundSetLoss();
 			}
 		} else {
-			FinalScore.innerText=`Score : ${easyScore}`
+			FinalScore.innerText = `Score : ${easyScore}`;
 			mainPageInputBox.value = randomNumEasy;
 			afterWin();
 			backGroundSet();
@@ -213,7 +218,7 @@ const GameLogic = () => {
 			}
 		} else {
 			mainPageInputBox.value = randomNumMedium;
-			FinalScore.innerText=`Score : ${mediumScore}`
+			FinalScore.innerText = `Score : ${mediumScore}`;
 			afterWin();
 			backGroundSet();
 			waveChangeSet();
@@ -253,7 +258,7 @@ const GameLogic = () => {
 				backGroundSetLoss();
 			}
 		} else {
-			FinalScore.innerText=`Score : ${hardScore}`
+			FinalScore.innerText = `Score : ${hardScore}`;
 			mainPageInputBox.value = randomNumHard;
 			afterWin();
 			backGroundSet();
@@ -451,22 +456,20 @@ dropDown.addEventListener(
 	function () {
 		dropDown2.selectedIndex = dropDown.selectedIndex;
 		limitSetter();
-		mainPageTxt.innerText= `restating now`;
+		mainPageTxt.innerText = `restating now`;
 	},
 	false
-	);
-	dropDown2.addEventListener(
-		"change",
-		function () {
-			dropDown.selectedIndex = dropDown2.selectedIndex;
-			
-		
-			limitSetter();
-			
-			setTimeout(() => {
-				
-				restartBtnOnFinish();
-			}, 1500);
+);
+dropDown2.addEventListener(
+	"change",
+	function () {
+		dropDown.selectedIndex = dropDown2.selectedIndex;
+
+		limitSetter();
+
+		setTimeout(() => {
+			restartBtnOnFinish();
+		}, 1500);
 	},
 	false
 );
@@ -494,7 +497,6 @@ const lvlChangeOnFinish = () => {
 	sessionStorage.setItem("selectedLvl", levelChosen);
 	lvlChangeTxtOnFinish();
 	limitSetter();
-	
 };
 
 if (dropDown) dropDown.addEventListener("change", lvlChange);

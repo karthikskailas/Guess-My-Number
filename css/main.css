@@ -22,6 +22,7 @@
 /*--------------------------------- Add CSS Variable -------------------- */
 
 :root {
+    --animate-duration: 1s;
     --primary-clr: #335F70;
     --font-clr: white;
     --font-family: 'ps-gameday', sans serif;
@@ -49,6 +50,7 @@ body {
     color: var(--font-clr);
     background-color: var(--primary-clr);
     overflow-y: hidden;
+    overflow-x: hidden;
 
     /* #1 to make the footer sticky to the bottom */
 
@@ -1149,4 +1151,14 @@ td {
 
 .--active {
     visibility: visible;
+}
+
+.info img {
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    width: 60px;
+    /* z-index: -1; */
+    cursor: pointer;
+    
 }

@@ -49,8 +49,8 @@ body {
     font-family: var(--font-family);
     color: var(--font-clr);
     background-color: var(--primary-clr);
-    overflow-y: hidden;
-    overflow-x: hidden;
+    overflow: hidden;
+
 
     /* #1 to make the footer sticky to the bottom */
 

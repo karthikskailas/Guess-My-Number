@@ -321,6 +321,7 @@ if (info) {
 }
 
 if (popUpBtn) popUpBtn.addEventListener("click", btnClose);
+if (popUp) popUp.addEventListener("click", btnClose);
 
 /* ----------------- Restart button ------------------------ */
 

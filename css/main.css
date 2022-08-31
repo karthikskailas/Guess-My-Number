@@ -41,7 +41,9 @@
     margin-block: 1.5rem;
 
 }
-
+footer{
+    
+}
 body {
     min-height: 100vh;
     line-height: 1.1;
@@ -153,6 +155,10 @@ body {
     margin: .4rem;
     width: 20px;
 
+}
+.headermainpage__logo a{
+    text-decoration: none;
+    color:white;
 }
 
 /*-------------------------- wave img for desktop----------------------  */

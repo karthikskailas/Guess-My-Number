@@ -147,7 +147,8 @@ let newHighScore = 0;
 
 const GameLogic = () => {
 	if (levelChosen === "easy") {
-		let guessNum = mainPageInputBox.value;9
+		let guessNum = mainPageInputBox.value;
+		9;
 
 		if (parseInt(guessNum) > randomNumEasy) {
 			mainPageInputBox.value = "";
@@ -156,7 +157,7 @@ const GameLogic = () => {
 				easyScore -= 1;
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${easyScore}`;
-				}, 500);
+				}, 1500);
 				mainPageInputBox.value = "";
 			} else {
 				FinalScore.innerText = `Score : 0`;
@@ -169,7 +170,7 @@ const GameLogic = () => {
 				easyScore -= 1;
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${easyScore}`;
-				}, 500);
+				}, 1500);
 				mainPageInputBox.value = "";
 			} else {
 				FinalScore.innerText = `Score : 0`;
@@ -197,7 +198,7 @@ const GameLogic = () => {
 				mediumScore -= 2;
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
-				}, 500);
+				}, 1500);
 				mainPageInputBox.value = "";
 			} else {
 				FinalScore.innerText = `Score : 0`;
@@ -210,7 +211,7 @@ const GameLogic = () => {
 				mediumScore -= 2;
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
-				}, 500);
+				}, 1500);
 				mainPageInputBox.value = "";
 			} else {
 				FinalScore.innerText = `Score : 0`;
@@ -238,7 +239,7 @@ const GameLogic = () => {
 				hardScore -= 4;
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${hardScore}`;
-				}, 500);
+				}, 1500);
 				mainPageInputBox.value = "";
 			} else {
 				FinalScore.innerText = `Score : 0`;
@@ -251,7 +252,7 @@ const GameLogic = () => {
 				hardScore -= 4;
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${hardScore}`;
-				}, 500);
+				}, 1500);
 				mainPageInputBox.value = "";
 			} else {
 				FinalScore.innerText = `Score :0`;

@@ -90,7 +90,6 @@ getSessionStore();
 let randomNumEasy = Math.floor(Math.random() * 20) + 1;
 let randomNumMedium = Math.floor(Math.random() * 50) + 1;
 let randomNumHard = Math.floor(Math.random() * 100) + 1;
-console.log(`${randomNumEasy} ${randomNumMedium} ${randomNumHard}`);
 
 /* ----------- random number generate ---------------- */
 const mainPageInputBox = document.querySelector("#mainpage__inp");
@@ -98,6 +97,10 @@ const afterGame = document.querySelector(".finish");
 const afterGameElement = document.querySelectorAll(".afterwin");
 
 const afterWin = () => {
+	$(document).ready(function () {
+		$("#headermainpage__dropmenu-select2").val(levelChosen);
+		limitSetter();
+	});
 	for (hide of afterGameElement) {
 		hide.classList.add("--display");
 	}
@@ -106,6 +109,7 @@ const afterWin = () => {
 	mainPageInputBox.style.caretColor = "transparent";
 	afterGame.classList.remove("--display");
 	logo();
+	dropDownHide();
 };
 const afterLoss = () => {
 	logo();
@@ -117,6 +121,8 @@ const afterLoss = () => {
 	mainPageInputBox.setAttribute("onkeydown", "return false");
 	mainPageInputBox.style.caretColor = "transparent";
 	afterGame.classList.remove("--display");
+	dropDown3.classList.add("--display");
+	dropDownHide();
 };
 
 const inputScore = () => {
@@ -127,7 +133,7 @@ const inputScore = () => {
 	else if (levelChosen === "hard")
 		mainPageTxt.innerText = `Your Score: ${hardScore}`;
 };
-// FIXME-CHANGE THE VALUES OF THE SCORE
+
 let easyScore = 20;
 let mediumScore = 50;
 let hardScore = 100;
@@ -141,9 +147,7 @@ let newHighScore = 0;
 
 const GameLogic = () => {
 	if (levelChosen === "easy") {
-		console.log("easy");
 		let guessNum = mainPageInputBox.value;
-
 		if (parseInt(guessNum) > randomNumEasy) {
 			mainPageInputBox.value = "";
 			if (easyScore > 1) {
@@ -154,7 +158,6 @@ const GameLogic = () => {
 				}, 500);
 				mainPageInputBox.value = "";
 			} else {
-				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
 				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
@@ -163,13 +166,11 @@ const GameLogic = () => {
 			if (easyScore > 1) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 				easyScore -= 1;
-				console.log(mediumScore);
 				setTimeout(() => {
 					mainPageTxt.innerText = `Score: ${easyScore}`;
 				}, 500);
 				mainPageInputBox.value = "";
 			} else {
-				// TODO-restructure
 				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
@@ -193,15 +194,11 @@ const GameLogic = () => {
 			if (mediumScore > 2) {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				mediumScore -= 2;
-				console.log(mediumScore);
 				setTimeout(() => {
-					// TODO- REMOVE THIS CONSOLE LOG
-					console.log(`njan epo onum kudi work ayi katto `);
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
 				}, 500);
 				mainPageInputBox.value = "";
 			} else {
-				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
 				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
@@ -210,15 +207,11 @@ const GameLogic = () => {
 			if (mediumScore > 2) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 				mediumScore -= 2;
-				console.log(mediumScore);
 				setTimeout(() => {
-					// TODO- REMOVE THIS CONSOLE LOG
-					console.log(`njan epo onum kudi work ayi katto last`);
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
 				}, 500);
 				mainPageInputBox.value = "";
 			} else {
-				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
 				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
@@ -237,20 +230,16 @@ const GameLogic = () => {
 			stopIt();
 		}
 	} else {
-		console.log("hard");
 		let guessNum = mainPageInputBox.value;
 		if (parseInt(guessNum) > randomNumHard) {
 			if (hardScore > 4) {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				hardScore -= 4;
 				setTimeout(() => {
-					// TODO- REMOVE THIS CONSOLE LOG
-					console.log(`njan epo onum kudi work ayi katto `);
 					mainPageTxt.innerText = `Score: ${hardScore}`;
 				}, 500);
 				mainPageInputBox.value = "";
 			} else {
-				// TODO-CHANGE COLOR THEME AND YOU LOSE THE GAME SHOW
 				FinalScore.innerText = `Score : 0`;
 				afterLoss();
 				backGroundSetLoss();
@@ -264,7 +253,6 @@ const GameLogic = () => {
 				}, 500);
 				mainPageInputBox.value = "";
 			} else {
-				// TODO-structure
 				FinalScore.innerText = `Score :0`;
 				afterLoss();
 				backGroundSetLoss();
@@ -294,13 +282,13 @@ if (mainPageForm) {
 }
 
 // to prevent the user from going back
-// const preventBack = () => {
-// 	window.history.forward();
-// };
-// setTimeout("preventBack()", 0);
-// window.onunload = function () {
-// 	null;
-// };
+const preventBack = () => {
+	window.history.forward();
+};
+setTimeout("preventBack()", 0);
+window.onunload = function () {
+	null;
+};
 
 /* -------------------- Popup --------------------- */
 
@@ -310,17 +298,26 @@ const popUpBtn = document.querySelector(".popup__button");
 
 const btnClose = () => {
 	popUp.classList.remove("--active");
+	info.classList.remove("--display");
+	info.classList.add("animate__fadeInRight", "animate__delay-1s");
 };
 window.addEventListener("load", () => {
 	setTimeout(() => {
 		if (popUp) popUp.classList.add("--active");
 	}, 500);
 });
-info.addEventListener("click", () => {
-	setTimeout(() => {
-		if (popUp) popUp.classList.add("--active");
-	}, 200);
-});
+if (info) {
+	info.addEventListener("click", () => {
+		setTimeout(() => {
+			if (popUp) {
+				const scroll = document.querySelector(".popup__descri");
+				scroll.scrollTop = 0;
+				popUp.classList.add("--active");
+			}
+		}, 200);
+	});
+}
+
 if (popUpBtn) popUpBtn.addEventListener("click", btnClose);
 
 /* ----------------- Restart button ------------------------ */
@@ -328,19 +325,15 @@ if (popUpBtn) popUpBtn.addEventListener("click", btnClose);
 const restartButton = document.querySelectorAll(".restartbtns");
 
 const restartLvl = () => {
-	// FIXME-CHANGE THE VALUE
 	easyScore = 20;
 	mediumScore = 50;
 	hardScore = 100;
 	if (levelChosen === "easy") {
 		randomNumEasy = Math.floor(Math.random() * 20) + 1;
-		console.log(`easy ${randomNumEasy}`);
 	} else if (levelChosen === "medium") {
 		randomNumMedium = Math.floor(Math.random() * 50) + 1;
-		console.log(`medium ${randomNumMedium}`);
 	} else {
 		randomNumHard = Math.floor(Math.random() * 100) + 1;
-		console.log(`hard ${randomNumHard}`);
 	}
 	/* ------------------------- for show maincontent input and hide finish section ---------------------------*/
 	for (show of afterGameElement) {
@@ -365,6 +358,8 @@ const restartBtn = () => {
 	backGroundRevert();
 	waveChangeRevert();
 	logoRevert();
+	waveChangeLossRevert();
+	dropDownShow();
 };
 const restartBtnOnFinish = () => {
 	mainPageInputBox.value = "";
@@ -375,6 +370,8 @@ const restartBtnOnFinish = () => {
 	backGroundRevert();
 	waveChangeRevert();
 	logoRevert();
+	waveChangeLossRevert();
+	dropDownShow();
 };
 
 // to check if the restartButton is exists on the page
@@ -391,6 +388,7 @@ const waveFooterDefaultMob = document.querySelector("#footer__images-mob");
 const waveFooterVictory = document.querySelector("#footer__images");
 const waveFooterVictoryMob = document.querySelector("#footer__image-mob");
 const waveFooterLoss = document.querySelector("#footer__image-red");
+const waveFooterLossMob = document.querySelector("#footer__image-red2");
 const headerLogo = document.querySelector("#headermainpage__logos");
 const header = document.querySelector("#headermainpages");
 
@@ -420,10 +418,14 @@ const backGroundRevert = () => {
 const waveChangeLoss = () => {
 	waveFooterDefault.classList.add("--display");
 	waveFooterLoss.classList.remove("--display");
+	waveFooterDefaultMob.classList.add("--display");
+	waveFooterLossMob.classList.remove("--display");
 };
 const waveChangeLossRevert = () => {
 	waveFooterLoss.classList.add("--display");
 	waveFooterDefault.classList.remove("--display");
+	waveFooterDefaultMob.classList.remove("--display");
+	waveFooterLossMob.classList.add("--display");
 };
 // to display hidden green waves img and hide blue wave
 const waveChangeSet = () => {
@@ -468,11 +470,16 @@ $(document).ready(function () {
 	$("#headermainpage__dropmenu-select").val(levelChosen);
 	limitSetter();
 });
+$(document).ready(function () {
+	$("#headermainpage__dropmenu-select3").val(levelChosen);
+	limitSetter();
+});
 
 /* ------------------ InGame Level Change ------------------ */
 
 const dropDown = document.querySelector("#headermainpage__dropmenu-select");
 const dropDown2 = document.querySelector("#headermainpage__dropmenu-select2");
+const dropDown3 = document.querySelector("#headermainpage__dropmenu-select3");
 /* --------------- To change the level of the main dropdown on changing the finishSection drop --------------*/
 dropDown.addEventListener(
 	"change",
@@ -493,6 +500,16 @@ dropDown2.addEventListener(
 		setTimeout(() => {
 			restartBtnOnFinish();
 		}, 1500);
+	},
+	false
+);
+dropDown3.addEventListener(
+	"change",
+	function () {
+		dropDown.selectedIndex = dropDown3.selectedIndex;
+		dropDown3.selectedIndex = dropDown.selectedIndex;
+
+		limitSetter();
 	},
 	false
 );
@@ -521,9 +538,16 @@ const lvlChangeOnFinish = () => {
 	lvlChangeTxtOnFinish();
 	limitSetter();
 };
+const lvlChangeOnFinish2 = () => {
+	levelChosen = dropDown3.options[dropDown3.selectedIndex].value;
+	sessionStorage.setItem("selectedLvl", levelChosen);
+	lvlChangeTxtOnFinish2();
+	limitSetter();
+};
 
 if (dropDown) dropDown.addEventListener("change", lvlChange);
 if (dropDown2) dropDown2.addEventListener("change", lvlChangeOnFinish);
+if (dropDown3) dropDown3.addEventListener("change", lvlChangeOnFinish2);
 
 const lvlChangeTxt = () => {
 	if (mainPageTxt) {
@@ -545,6 +569,15 @@ const lvlChangeTxtOnFinish = () => {
 		setTimeout(() => {
 			mainPageTxt.innerText = `start guessing...`;
 		}, 1900);
+	}
+};
+const lvlChangeTxtOnFinish2 = () => {
+	if (mainPageTxt) {
+		mainPageTxt.innerText = `Lvl Changed to ${levelChosen}`;
+		mainPageDisplayBox.innerText = "?";
+		setTimeout(() => {
+			mainPageTxt.innerText = `start guessing...`;
+		}, 900);
 	}
 };
 /* ----- for Displaying input number in the display box ------- */
@@ -581,3 +614,24 @@ mainPageInputBox.addEventListener("input", inputScore);
 let easyHighScore = 0;
 let mediumHighScore = 0;
 let hardHighScore = 0;
+
+const dropDownHide = () => {
+	let query = window.matchMedia("(max-width: 675px)");
+	let query2 = window.matchMedia("(max-width:502px)");
+	if (query.matches) {
+		document.querySelector(".dropdown").style.display = "none";
+	}
+	if (query2.matches) {
+		document.querySelector(".dropdown").style.display = "none";
+	}
+};
+const dropDownShow = () => {
+	let query = window.matchMedia("(max-width: 675px)");
+	let query2 = window.matchMedia("(max-width:502px)");
+	if (query.matches) {
+		document.querySelector(".dropdown").style.display = "block";
+	}
+	if (query2.matches) {
+		document.querySelector(".dropdown").style.display = "block";
+	}
+};

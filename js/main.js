@@ -147,7 +147,7 @@ let newHighScore = 0;
 
 const GameLogic = () => {
 	if (levelChosen === "easy") {
-		let guessNum = mainPageInputBox.value;
+		let guessNum = mainPageInputBox.value;9
 
 		if (parseInt(guessNum) > randomNumEasy) {
 			mainPageInputBox.value = "";
@@ -196,7 +196,6 @@ const GameLogic = () => {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				mediumScore -= 2;
 				setTimeout(() => {
-					console.log(`njan epo onum kudi work ayi katto `);
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
 				}, 500);
 				mainPageInputBox.value = "";
@@ -209,9 +208,7 @@ const GameLogic = () => {
 			if (mediumScore > 2) {
 				mainPageTxt.innerText = `Your guess is low 🥶: try again !!`;
 				mediumScore -= 2;
-				console.log(mediumScore);
 				setTimeout(() => {
-					console.log(`njan epo onum kudi work ayi katto last`);
 					mainPageTxt.innerText = `Score: ${mediumScore}`;
 				}, 500);
 				mainPageInputBox.value = "";
@@ -240,7 +237,6 @@ const GameLogic = () => {
 				mainPageTxt.innerText = `Your guess is high  🥵 : try again !!`;
 				hardScore -= 4;
 				setTimeout(() => {
-					console.log(`njan epo onum kudi work ayi katto `);
 					mainPageTxt.innerText = `Score: ${hardScore}`;
 				}, 500);
 				mainPageInputBox.value = "";

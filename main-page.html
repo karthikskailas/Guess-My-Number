@@ -18,41 +18,72 @@
     </div>
     <div class="popup">
         <div class="popup__box">
-            <h2>Note</h2>
-    
+            
             <div class="popup__descri">
-                <p>Level indicates the range of the number where the computer chooses a random number that you want to
-                    guess.
-                </p>
-                <div class="popup__tablewrap">
-                    <table class="popup__table">
-                        <tr>
-                            <th class="leftup">LEVEL</th>
-                            <th class="unit">RANGE OF NUMBER</th>
-                        </tr>
-                        <tr>
-                            <td>EASY</td>
-                            <td>BETWEEN 1 TO 20</td>
-                        </tr>
-                        <tr>
-                            <td>MEDIUM</td>
-                            <td>BETWEEN 1 TO 50</td>
-                        </tr>
-                        <tr>
-                            <td class="leftdown">HARD</td>
-                            <td class="rightdowm">BETWEEN 1 TO 100</td>
-                        </tr>
-                    </table>
-                </div>
-                <button class="popup__button active">OK</button>
+<div class="popup__wrapper">
+    
+                    <h2>RULE</h2>
+    
+                    <p>Guess a number according to the selected range. If your guess is correct, you win the game. Your guess is wrong your
+                    score decreases according to the level. You lose when your score becomes 0.
+                        </p>
+                        <table class="popup__table">
+                            <tr>
+                                <th class="leftup">LEVEL</th>
+                                <th class="unit">SCORE</th>
+                                <th class="unit">MINUS POINT</th>
+                            </tr>
+                            <tr>
+                                <td>EASY</td>
+                                <td>20</td>
+                                <td>- 1</td>
+                            </tr>
+                            <tr>
+                                <td>MEDIUM</td>
+                                <td>50</td>
+                                <td>- 2</td>
+                            </tr>
+                            <tr>
+                                <td class="leftdown">HARD</td>
+                                <td class="rightdowm"> 100</td>
+                                <td class="rightdowm"> - 4</td>
+                            </tr>
+                        </table>
+                  
+                    <h2 class="level">LEVEL</h2>
+                    <p>Level indicates the range of the number where the computer chooses a random number that you want to
+                        guess.
+                    </p>
+                    <div class="popup__tablewrap">
+                        <table class="popup__table">
+                            <tr>
+                                <th class="leftup">LEVEL</th>
+                                <th class="unit">RANGE OF NUMBER</th>
+                            </tr>
+                            <tr>
+                                <td>EASY</td>
+                                <td>BETWEEN 1 TO 20</td>
+                            </tr>
+                            <tr>
+                                <td>MEDIUM</td>
+                                <td>BETWEEN 1 TO 50</td>
+                            </tr>
+                            <tr>
+                                <td class="leftdown">HARD</td>
+                                <td class="rightdowm">BETWEEN 1 TO 100</td>
+                            </tr>
+                        </table>
+                    </div>
+</div>
             </div>
+            <button class="popup__button active">OK</button>
         </div>
     </div>
     <header class="headermainpage" id="headermainpages">
         <img src="icon/help-and-restart/restart.svg" alt="restart"
             class="headermainpage__restartbtn active restartbtns afterwin" id="headermainpage__restartbtns">
         <div class="headermainpage__menubar">
-            <img src="icon/buttons/Menu-icon.svg" class="headermainpage__menubar-icon" alt="menubar">
+          
             <h1 class="headermainpage__logo" id="headermainpage__logos">GUESS MY NUMBER</h1>
         </div>
         <div class="headermainpage__wrapper afterwin">
@@ -67,7 +98,7 @@
         </div>
     </header>
     <section class="info">
-        <img src="icon/buttons/info-button.svg" class="animate__animated animate__fadeInRight "  id="info__img" alt="info">
+        <img src="icon/buttons/info-button.svg" class="animate__animated --display  "  id="info__img" alt="info">
     </section>
     <section class="mainpage">
         <div class="mainpage__textwrapper">
@@ -75,36 +106,48 @@
                 <div class="mainpage__displaybox"><span id="mainpage__displaybox-content">?</span>
                 </div>
                 <h2 class="mainpage__text" id="mainpage__txt">start guessing</h2>
+                <div class="finishdropdown">
+                    <select id="headermainpage__dropmenu-select3" class="headermainpage__dropmenu dropdown drop3" name="cars">
+                        <option value="easy">EASY</option>
+                        <option value="medium"> MEDIUM </option>
+                        <option value="hard"> HARD </option>
+                    </select>
+                </div>
+            </div>
+           
+            <div class="finish --display ">
+                <div class="finishdropdown">
+                    <select id="headermainpage__dropmenu-select2" class="headermainpage__dropmenu" name="cars">
+                        <option value="easy">EASY</option>
+                        <option value="medium"> MEDIUM </option>
+                        <option value="hard"> HARD </option>
+                    </select>
+                </div>
+                <div class="finishsection ">
+                    <div class="finishsection__text">
+                        <span class="finishsection__text-score">Score : 100</span>
+                        <span class="finishsection__text-highscore">HighScore : 200</span>
+                    </div>
+                    <div class="finishsection__restartbtnwrapper"><img src="/icon/help-and-restart/restart-finish.svg"
+                            class="active finishsection__restartbtn restartbtns" alt=""></div>
+                </div>
             </div>
             <form id="mainpage__input-form">
                 <div class="mainpage__inputwrapper afterwin ">
+          
                     <input class="mainpage__input" id="mainpage__inp" required type="number" min="1">
                     <button class="mainpage__button active" id="mainpage__btn">CHECK</button>
             </form>
         </div>
 
     </section>
-    <section class="finish --display">
-        <div class="finishdropdown">
-            <select id="headermainpage__dropmenu-select2" class="headermainpage__dropmenu" name="cars">
-                <option value="easy">EASY</option>
-                <option value="medium"> MEDIUM </option>
-                <option value="hard"> HARD </option>
-            </select>
-        </div>
-        <div class="finishsection ">
-            <div class="finishsection__text">
-                <span class="finishsection__text-score">Score : 100</span>
-                <span class="finishsection__text-highscore">HighScore : 200</span>
-            </div>
-            <div class="finishsection__restartbtnwrapper"><img src="/icon/help-and-restart/restart-finish.svg"
-                    class="active finishsection__restartbtn restartbtns" alt=""></div>
-        </div>
-    </section>
+   
     <footer>
         <img src="img/Welcome-Page/waves/Wave-Down.svg" alt="wave" class="footer__img" id="footer__image">
         <img src="img/Home-page/waves/lose/Wave-down-red.svg" alt="wave" class="footer__img --display"
-            id="footer__image-red">
+        id="footer__image-red">
+        <img src="img/Home-page/waves/lose/Wave-down-mob-red.svg" alt="wave" class="footer__img2 --display"
+        id="footer__image-red2">
         <img src="img/Home-page/waves/win/mainpage/Wave.svg" alt="wave" id="footer__images"
             class="footer__img --display ">
         <img src="img/Home-page/waves/win/mainpage/Wave-mob.svg" alt="wave" id="footer__image-mob"

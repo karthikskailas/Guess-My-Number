@@ -406,7 +406,7 @@ footer {
     margin-block-start: 1.5rem;
     /* padding-left: 6rem; */
     display: flex;
-    width: 103%;
+    width: 100%;
     justify-content: space-evenly;
 
 }
@@ -420,7 +420,7 @@ footer {
 .headermainpage__logo {
     font-size: 4rem;
     text-align: center;
-    margin-left: 6rem;
+    margin-left: 10rem;
     letter-spacing: 5px;
 }
 

@@ -26,7 +26,7 @@
     --primary-clr: #335F70;
     --font-clr: white;
     --font-family: 'ps-gameday', sans serif;
-    --font-s1: 8rem;
+    --font-s1: 7rem;
     --font-s2: 1.5rem;
     --font-family-disbox: 'Ultra', serif;
     --button-clr: #FF474A;
@@ -189,6 +189,7 @@ body {
 .maincontent__uppertext {
     font-size: var(--font-s2);
     margin-left: .9rem;
+    letter-spacing: 0;
 }
 
 /*----------------------------- styling textbox ----------------------------- */
@@ -241,7 +242,8 @@ footer {
 @media only screen and (min-width:600px) and (max-width:910px) {
 
     .maincontent__heading {
-        font-size: 5rem;
+        font-size: 4rem;
+        letter-spacing: 0;
     }
 
     .maincontent__uppertext {
@@ -278,6 +280,7 @@ footer {
 
     .maincontent__heading {
         font-size: 3rem;
+        letter-spacing: 0;
     }
 
 
@@ -340,6 +343,7 @@ footer {
 
     .maincontent__heading {
         font-size: 2rem;
+        letter-spacing: 0;
     }
 
 
@@ -355,7 +359,7 @@ footer {
     }
 
     .maincontent {
-        margin-top: rem;
+        margin-top: 12rem;
     }
 
     input::placeholder {

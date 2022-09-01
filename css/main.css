@@ -699,7 +699,7 @@ input::-webkit-inner-spin-button {
 
 
     .headermainpage__logo {
-        font-size: 4rem;
+        font-size: 3rem;
         text-align: center;
         margin-left: 0rem;
     }
@@ -716,7 +716,7 @@ input::-webkit-inner-spin-button {
         text-align: center;
         color: white;
         font-family: var(--font-family);
-        margin-bottom: 1.9rem;
+        margin-bottom: 0.9rem;
         margin-inline: auto;
     }
 
@@ -737,17 +737,17 @@ input::-webkit-inner-spin-button {
 
     .mainpage__displaybox {
         font-family: var(--font-family-disbox);
-        color: var(--primary-clr);
-        display: block;
-        margin-inline: auto;
-        background-color: white;
-        padding: 43px 15px;
-        border-radius: 15px;
-        font-size: 6rem;
-        text-align: center;
-        max-width: 266px;
-        max-height: 185px;
-        width: 440px;
+            color: var(--primary-clr);
+            display: block;
+            margin-inline: auto;
+            background-color: white;
+            padding: 26px 15px;
+            border-radius: 15px;
+            font-size: 6rem;
+            text-align: center;
+            max-width: 266px;
+            max-height: 152px;
+            width: 440px;
     }
 
     .headermainpage__menubar-icon {
@@ -761,6 +761,12 @@ input::-webkit-inner-spin-button {
         margin-right: 0rem;
 
     }
+        .mainpage {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            width: 100%;
+        }
 
 
 }
@@ -772,6 +778,7 @@ input::-webkit-inner-spin-button {
 
     .drop3 {
         display: block;
+            margin-top: -12px;
     }
 
     .finishsection__text {
@@ -1296,7 +1303,7 @@ td {
     cursor: pointer;
 
 }
-@media screen and (max-width:1366px) {
+@media screen and (min-width:956px) and (max-width:1370px) {
     .maincontent {
         margin-top: -1rem;
     }
@@ -1338,5 +1345,86 @@ td {
                     letter-spacing: 3px;
                     margin-left: 1.435rem;
                 }
+
+}
+@media screen and (max-width:500px){
+.headermainpage {
+        margin-block-start: 0.5rem;
+        display: block;
+        text-align: center;
+    }
+        .headermainpage__logo {
+            font-size: 2.9rem;
+            text-align: center;
+            margin-left: 0rem;
+            margin-top: 2.625rem;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+                .mainpage__displaybox {
+                    font-family: var(--font-family-disbox);
+                    color: var(--primary-clr);
+                    display: block;
+                    margin-inline: auto;
+                    background-color: white;
+                    padding: 20px 30px;
+                    border-radius: 15px;
+                    font-size: 6rem;
+                    text-align: center;
+                    max-width: 257px;
+                    max-height: 180px;
+}
+.mainpage__text {
+    text-align: center;
+    /* display: block; */
+        margin-block:0rem;
+    margin-top: 1.2rem;
+    letter-spacing: 3px;
+    margin-left: 1.435rem;
+}
+}
+
+@media screen and (min-width:926px) and (max-width:954px){
+.headermainpage__logo {
+        font-size: 3rem;
+        text-align: center;
+        margin-left: 8rem;
+        letter-spacing: 5px;
+    }
+        .headermainpage__wrapper {
+            display: flex;
+            margin-top: 0.3rem;
+        }
+
+}
+@media screen and (min-width:675px) and (max-width:800px){
+.headermainpage__logo {
+        font-size: 3rem;
+        text-align: center;
+        margin-left: 8rem;
+        letter-spacing: 0px;
+    }
+        .headermainpage__wrapper {
+            display: flex;
+            margin-top: 0.3rem;
+        }
+                .headermainpage__dropmenu {
+                    margin-inline: 1rem;
+                    padding: 0.2em 0em;
+                    text-align: center;
+                    font-family: var(--font-family);
+                    background-color: var(--primary-clr);
+                    border: 2px solid white;
+                    border-radius: 7px;
+                    color: white;
+                    font-size: 1.25rem;
+                    outline: none;
+                }
+                                .headermainpage__logo {
+                                    font-size: 3rem;
+                                    text-align: center;
+                                    margin-left: 3rem;
+                                    letter-spacing: 0px;
+                                }
 
 }

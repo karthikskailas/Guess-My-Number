@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'ps-gameday';
-    src: url(/font/ps-gameday-regular.otf);
+    src: url(/font/Fonarto.ttf);
 }
 
 /* --------------------- CSS Reset ------------------------- */
@@ -555,7 +555,7 @@ footer {
     color: white;
     font-family: var(--font-family);
     margin-bottom: 1.9rem;
-    margin-left: .5rem;
+  
     background-color: var(--primary-clr);
 
 }
@@ -1335,7 +1335,7 @@ td {
             color: white;
             font-family: var(--font-family);
             margin-bottom: 1.9rem;
-            margin-left: 0.5rem;
+        
             background-color: var(--primary-clr);
             margin-top: -18px;
         }
